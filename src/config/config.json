@@ -5,7 +5,7 @@
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
+    "logo": "/images/rcv_horizontal.png",
     "logo_width": "200",
     "logo_height": "34",
     "logo_text": "Bookworm Light"
