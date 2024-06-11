@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import { markdownify } from "@/lib/utils/textConverter";
+import { getEntryBySlug } from "astro:content";
+const entry = await getEntryBySlug("index", "president-message");
+const { Content } = await entry.render();
+const { title, image } = entry.data;
+---
+
+<section class="section">
+  <div class="container">
+    <div class="row md:gx-4">
+      <div class="sm:col-5 md:col-4">
+        {
+          image && (
+            <div class="img-cover mb-8">
+              <Image
+                src={image}
+                width={295}
+                height={395}
+                alt={title}
+                class="rounded-lg w-full"
+              />
+            </div>
+          )
+        }
+      </div>
+      <div class="sm:col-7 md:col-8">
+        <h1 set:html={markdownify(title)} class="h3 mb-8" />
+
+        <div class="content">
+          <Content />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

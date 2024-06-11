@@ -9,6 +9,7 @@ import { markdownify } from "@/lib/utils/textConverter";
 
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
+import PresidentMessage from "./presidentMessage.astro";
 const entry = await getEntryBySlug("about", "index");
 const { Content } = await entry.render();
 const { title, description, meta_title, image, what_i_do } = entry.data;
@@ -49,6 +50,10 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="section">
+    <PresidentMessage />
   </section>
   <section class="section">
     <div class="container">
