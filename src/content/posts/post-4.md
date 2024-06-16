@@ -4,9 +4,9 @@ description: "meta description"
 date: 2022-04-04T16:56:47+06:00
 image: "/images/posts/04.jpg"
 draft: false
-authors: ["Mark Dinn"]
+authors: ["Aditya Purohit"]
 tags: ["Balloon", "Gas"]
-categories: ["Accessories"]
+categories: ["International"]
 ---
 
 A balloon is a flexible bag that can be inflated with a gas, such as helium, hydrogen, nitrous oxide, oxygen, and air. For special tasks, balloons can be filled with smoke, liquid water, granular media, or light sources.

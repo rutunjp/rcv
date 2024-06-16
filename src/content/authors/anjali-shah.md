@@ -1,7 +1,8 @@
 ---
-title: John Doe
+title: Anjali Shah
 image: /images/authors/john-doe.jpg
-description: this is meta description
+position: Club President
+description: Environment Service Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

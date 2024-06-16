@@ -12,6 +12,7 @@
   },
 
   "settings": {
+    "teamPagination": 10,
     "pagination": 5,
     "summary_length": 100
   },
@@ -24,12 +25,12 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2023 a theme by [Themefisher](https://themefisher.com)"
+    "copyright": "Copyright © 2024. Open for all the Rotaract Clubs ❤"
   },
 
   "contactinfo": {
-    "address": "355 S Grand Ave <br/> Los Angeles, CA 90071",
-    "email": "info@bookworm.org",
-    "phone": "+800 567 1234"
+    "address": "Rotary Hall, 62 Haribhakti Colony, Opp. Rajlaxmi Complex, O.P. Road, Vadodara - 390 015",
+    "email": "rotaractvadodara@gmail.com",
+    "phone": "+91 85117-43432"
   }
 }

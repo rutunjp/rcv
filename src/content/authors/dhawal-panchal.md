@@ -1,7 +1,8 @@
 ---
-title: Mark Dinn
-image: /images/authors/mark-dinn.jpg
-description: this is meta description
+title: Dhawal Panchal
+image: /images/authors/john-doe.jpg
+position: Club President
+description: Club President
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

@@ -18,11 +18,11 @@
       "hasChildren": true,
       "children": [
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "Team",
+          "url": "/team"
         },
         {
-          "name": "Categories",
+          "name": "Projects",
           "url": "/categories"
         },
         {

@@ -4,7 +4,8 @@ import Social from "@/components/Social.astro";
 import { markdownify } from "@/lib/utils/textConverter";
 
 const { author } = Astro.props;
-const { title, image, social } = author.data;
+const { title, image, social, position, description } = author.data;
+console.log("Author Data:", author.data);
 const { Content } = await author.render();
 ---
 
@@ -24,9 +25,12 @@ const { Content } = await author.render();
           </div>
         )
       }
-      <h1 set:html={markdownify(title)} class="page-heading h2 mb-8" />
+      <div class="page-heading">
+        <h1 set:html={markdownify(title)} class="h2 mb-2" />
+        <h3 class="text-lg font-medium opacity-80 mb-8">{description}</h3>
+        <Social source={social} className="social-icons-simple" />
+      </div>
 
-      <Social source={social} className="social-icons-simple" />
       <div class="content">
         <Content />
       </div>

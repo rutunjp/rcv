@@ -2,11 +2,12 @@ export interface TAuthor {
   id: string;
   slug: string;
   body: string;
-  collection: string;
+  collection: string; 
   data: {
     title: string;
     image: string;
     description: string;
+    position:string;
     social: {
       facebook: string;
       twitter: string;

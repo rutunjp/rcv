@@ -9,16 +9,16 @@ import { markdownify } from "@/lib/utils/textConverter";
 
 const authors = await getSinglePage("authors");
 const sortedPosts = sortByDate(authors);
-const totalPages = Math.ceil(authors.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const totalPages = Math.ceil(authors.length / config.settings.teamPagination);
+const currentPosts = sortedPosts.slice(0, config.settings.teamPagination);
 ---
 
-<Base title={"Authors"}>
+<Base title={"Team"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
+      <h1 set:text={markdownify("Team")} class="page-heading h2" />
       <Authors authors={currentPosts} />
-      <Pagination section={"authors"} currentPage={1} totalPages={totalPages} />
+      <Pagination section={"team"} currentPage={1} totalPages={totalPages} />
     </div>
   </section>
 </Base>

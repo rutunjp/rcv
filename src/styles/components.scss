@@ -28,7 +28,7 @@
     @apply h-full w-full;
   }
   img {
-    @apply object-cover;
+    @apply object-contain;
   }
 }
 
