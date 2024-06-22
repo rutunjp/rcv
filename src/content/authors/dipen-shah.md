@@ -1,6 +1,6 @@
 ---
 title: Dipen Shah
-image: /images/authors/john-doe.jpg
+image: /images/authors/dipen.jpg
 position: Professional Service Director
 description: Professional Service Director
 social:

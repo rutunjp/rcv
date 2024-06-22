@@ -1,8 +1,8 @@
 ---
 title: Keertika Dhingra
-image: /images/authors/john-doe.jpg
-position: Rotaract Week Chair
-description: Rotaract Week Chair
+image: /images/authors/keertika.jpg
+position: Rotasia Club Ambassador
+description: Rotasia Club Ambassador
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

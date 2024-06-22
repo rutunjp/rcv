@@ -1,8 +1,8 @@
 ---
 title: Purva Bhatt
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/purva.jpg
+position: Service Projects Chair
+description: Service Projects Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

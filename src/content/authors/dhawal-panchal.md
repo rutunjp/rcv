@@ -1,6 +1,6 @@
 ---
 title: Dhawal Panchal
-image: /images/authors/john-doe.jpg
+image: /images/authors/dhawal.jpg
 position: Club President
 description: Club President
 social:

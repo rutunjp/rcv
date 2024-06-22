@@ -1,8 +1,8 @@
 ---
 title: Meet Patel
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/meetPatel.jpg
+position: Literacy Chair
+description: Literacy Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

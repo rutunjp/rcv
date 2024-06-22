@@ -1,6 +1,6 @@
 ---
 title: Saloni Bokadia
-image: /images/authors/john-doe.jpg
+image: /images/authors/saloni.jpg
 position: Club Service Director
 description: Club Service Director
 social:

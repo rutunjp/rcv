@@ -1,8 +1,8 @@
 ---
 title: Jignesh Padhya
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/jignesh.jpg
+position: Rotaract Learning Facilitator
+description: Rotaract Learning Facilitator
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

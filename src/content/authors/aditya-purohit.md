@@ -1,6 +1,6 @@
 ---
 title: Aditya Purohit
-image: /images/authors/john-doe.jpg
+image: /images/authors/aditya.png
 position: Public Image Director
 description: Club Secretary
 social:

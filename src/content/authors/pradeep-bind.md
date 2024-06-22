@@ -1,8 +1,8 @@
 ---
 title: Pradeep Bind
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/pradeep.jpg
+position: Event Planning Chair
+description: Event Planning Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

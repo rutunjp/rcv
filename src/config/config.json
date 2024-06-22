@@ -12,7 +12,7 @@
   },
 
   "settings": {
-    "teamPagination": 10,
+    "teamPagination": 25,
     "pagination": 5,
     "summary_length": 100
   },

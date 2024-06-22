@@ -1,8 +1,8 @@
 ---
 title: Hardik Aswani
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/hardik.png
+position: Treasurer
+description: Treasurer
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

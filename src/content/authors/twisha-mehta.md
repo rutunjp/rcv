@@ -1,6 +1,6 @@
 ---
 title: Twisha Mehta
-image: /images/authors/john-doe.jpg
+image: /images/authors/twisha.jpg
 position: Club Editor
 description: Club Editor
 social:

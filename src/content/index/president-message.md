@@ -1,11 +1,9 @@
 ---
 title: "President's Message"
-image: "/images/authors/mark-dinn.jpg"
+image: "/images/authors/dhawal.jpg"
 ---
 
-A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
-
-Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
+As President of the Rotaract Club of Vadodara, my vision is to foster an environment where our members can thrive both personally and professionally. Our focus will be on creating robust business networking opportunities that empower our members to connect, collaborate, and grow. By leveraging our collective skills and resources, we aim to build a dynamic community that supports each other's ambitions.
 
  <div style="text-align: right  ">   <b>Rtr.Dhawal Panchal</b>  </div>
  <div style="text-align: right ">  <b>President, Rotaract Club of Vadodara</b> </div>

@@ -1,6 +1,6 @@
 ---
 title: Anjali Shah
-image: /images/authors/john-doe.jpg
+image: /images/authors/anjali.jpg
 position: Club President
 description: Environment Service Chair
 social:

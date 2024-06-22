@@ -1,6 +1,6 @@
 ---
 title: Richa Suryawala
-image: /images/authors/john-doe.jpg
+image: /images/authors/richa.jpg
 position: Membership Chair
 description: Membership Chair
 social:

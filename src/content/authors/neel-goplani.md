@@ -1,8 +1,8 @@
 ---
 title: Neel Goplani
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/neel.jpg
+position: World Rotaract week Chair
+description: World Rotaract week Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

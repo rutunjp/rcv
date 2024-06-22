@@ -1,6 +1,6 @@
 ---
 title: Vivek Sarvaiya
-image: /images/authors/john-doe.jpg
+image: /images/authors/vivek.jpg
 position: Club President
 description: Immediate Past President
 social:

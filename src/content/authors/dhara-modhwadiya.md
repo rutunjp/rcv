@@ -1,6 +1,6 @@
 ---
 title: Dhara Modhwadiya
-image: /images/authors/john-doe.jpg
+image: /images/authors/dhara.jpg
 position: Networking Chair
 description: Networking Chair
 social:

@@ -1,6 +1,6 @@
 ---
 title: Rutunj Parikh
-image: /images/memberPhotos/rutunj.jpg
+image: /images/authors/rutunj.jpg
 position: Public Image Chair
 description: Public Image Chair
 social:

@@ -1,6 +1,6 @@
 ---
 title: Rudra Upadhyay
-image: /images/authors/john-doe.jpg
+image: /images/authors/rudra.jpg
 position: Club President
 description: International Service Director
 social:

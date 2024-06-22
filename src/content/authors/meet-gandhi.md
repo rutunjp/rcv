@@ -1,6 +1,6 @@
 ---
 title: Meet Gandhi
-image: /images/authors/john-doe.jpg
+image: /images/authors/meetGandhi.jpg
 position: Sports Director
 description: Sports Director
 social:

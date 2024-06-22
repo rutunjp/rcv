@@ -1,6 +1,6 @@
 ---
 title: Tirth Bhatt
-image: /images/authors/john-doe.jpg
+image: /images/authors/tirth.jpg
 position: Vice President
 description: Vice President
 social:

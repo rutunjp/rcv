@@ -1,8 +1,8 @@
 ---
 title: Jeni Sheth
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/jeni.png
+position: Sergeant at Arms
+description: Sergeant at Arms
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/

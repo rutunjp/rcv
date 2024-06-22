@@ -1,8 +1,8 @@
 ---
 title: Ketul Purohit
-image: /images/authors/john-doe.jpg
-position: Professional Service Director
-description: Professional Service Director
+image: /images/authors/ketul.png
+position: Foundation Chair
+description: Foundation Chair
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/
