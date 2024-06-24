@@ -5,18 +5,18 @@ image: "/images/fullLogo.png"
 draft: false
 
 what_i_do:
-  title: "What I Do"
+  # title: "What I Do"
   items:
-    - title: "Content Writing"
-      description: "Purus eget ipsum elementum venenatis, quis rutrum mi semper nonpurus eget ipsum elementum venenatis."
+    - title: "Community Support"
+      description: "We will create a supportive environment where members uplift and empower each other, fostering both personal and professional growth."
 
-    - title: "Photography"
-      description: "Aenean maximus urna magna elementum, quis rutrum mi semper non purus eget ipsum venenatis."
+    - title: "Visionary Leadership"
+      description: "Our leadership will focus on innovative business networking opportunities, inspiring members to connect, collaborate, and excel."
 
-    - title: "Web Research"
-      description: "Aenean maximus urna magna elementum venenatis, quis semper non purus eget ipsum venenatis."
+    - title: "Active Participation"
+      description: "Every member's active participation is crucial. Engage fully, contribute your talents, and seize the opportunities we create together for mutual benefit."
 ---
 
-A content writer with over 12 years experience working across brand identity, publishing and digital products. Maecenas sit amet purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis quis non purus.
+The Rotaract Club of Vadodara is a vibrant community of young leaders committed to positive impact through service and fellowship. Our members engage in projects enhancing local and global communities.
 
-Purus eget ipsum elementum venenatis. Aenean maximus urna magna elementum venenatis, quis rutrum mi semper non purus eget ipsum elementum venenatis, aenean maximus urna magna elementum.
+Rotaract is a global movement of young people dedicated to community service, professional development, and personal growth. It connects like-minded individuals for impactful projects and leadership development, empowering lasting change locally and internationally.
