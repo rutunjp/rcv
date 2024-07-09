@@ -6,7 +6,7 @@ description: Club Secretary
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/
-  instagram: https://www.instagram.com/
+  instagram: https://www.instagram.com/adityapurohitt/
 ---
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+It's , our Rotaract Secretary, here to bring a touch of brilliance to every project and meeting, just like Mike Ross in the office! With his dedication and enthusiasm, get ready for a year of impactful exchanges, skill development, and of course, plenty of fun! 🌟🤝

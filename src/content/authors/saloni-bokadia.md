@@ -6,7 +6,6 @@ description: Club Service Director
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/
-  instagram: https://www.instagram.com/
+  instagram: https://www.instagram.com/saloni1703/
 ---
-
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+Spotted: Saloni , our Club Service Chair, ensuring every Rotaract event is unforgettable. You know you love her. XOXO, Gossip Girl

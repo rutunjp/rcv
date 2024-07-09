@@ -6,7 +6,7 @@ description: International Service Director
 social:
   facebook: https://www.facebook.com/
   twitter: https://www.twitter.com/
-  instagram: https://www.instagram.com/
+  instagram: https://www.instagram.com/rudradotupadhyay/
 ---
 
-lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostr navigation et dolore magna aliqua.
+Introducing Rudra, our Dan Humphrey of International Service. Always dedicated to uncovering and sharing the global impact of Rotaract with a touch of intrigue.
