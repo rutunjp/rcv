@@ -26,7 +26,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
         <div class="sm:col-5 md:col-4">
           {
             image && (
-              <div class="img-cover mb-8">
+              <div class="img-cover mb-8  hidden lg:block  ">
                 <Image
                   src={image}
                   width={295}
@@ -39,12 +39,16 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
           }
         </div>
         <div class="sm:col-7 md:col-8">
-          <h1 set:html={markdownify(title)} class="h3 mb-8" />
+          <h1 set:html={markdownify(title)} class="h2 lg:h3 mb-8" />
 
           <div class="content">
             <Content />
           </div>
-          <a href="/contact" class="btn btn-primary text-white py-2">JOIN US</a>
+          <a
+            target="_blank"
+            href="https://docs.google.com/forms/d/e/1FAIpQLScUlLgGBD9ntp4KlLYzN0HyE6NNp11bvP5MoM8dCJiZ28ARdw/viewform"
+            class="btn btn-primary text-white py-2">JOIN US</a
+          >
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ date: 2023-12-09T05:00:00Z
 image: "/images/posts/rotatrekGrpPhoto.jpg"
 categories: ["International", "Club"]
 authors: ["Aditya Purohit"]
-tags: []
+tags: ["Adventure"]
 draft: false
 ---
 
