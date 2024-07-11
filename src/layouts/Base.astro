@@ -8,6 +8,8 @@ import Header from "@/partials/Header.astro";
 import "@/styles/main.scss";
 import { AstroFont } from "astro-font";
 import { ViewTransitions } from "astro:transitions";
+import SideButtons from "./shortcodes/sideButtons";
+import Social from "./components/Social.astro";
 
 // font families
 const pf = theme.fonts.font_family.primary;
@@ -112,8 +114,8 @@ const { title, meta_title, description, image, noindex, canonical } =
 
     <ViewTransitions />
 
-    <!-- author from config.json -->
-    <meta name="author" content={config.metadata.meta_author} />
+    <!-- member from config.json -->
+    <meta name="member" content={config.metadata.meta_member} />
 
     <!-- og-title -->
     <meta
@@ -170,11 +172,14 @@ const { title, meta_title, description, image, noindex, canonical } =
     <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
+    <!-- <SideButtons /> -->
     <TwSizeIndicator />
     <Header />
     <main id="main-content" class="min-h-[60vh]">
       <slot />
     </main>
+    <SideButtons />
+
     <Footer />
   </body>
 </html>

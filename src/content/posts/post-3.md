@@ -4,7 +4,7 @@ description: "meta description"
 date: 2023-08-02T05:00:00Z
 image: "/images/posts/rotafair.jpg"
 categories: ["Community", "Club"]
-authors: ["Tirth Bhatt"]
+members: ["Tirth Bhatt"]
 tags: []
 draft: false
 ---

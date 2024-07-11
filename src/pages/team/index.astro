@@ -1,0 +1,25 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import Pagination from "@/layouts/components/Pagination.astro";
+import Members from "@/layouts/Members.astro";
+import { getSinglePage } from "@/lib/contentParser.astro";
+import { sortByDate } from "@/lib/utils/sortFunctions";
+import { markdownify } from "@/lib/utils/textConverter";
+const members = await getSinglePage("members");
+const sortedPosts = sortByDate(members);
+const totalPages = Math.ceil(members.length / config.settings.teamPagination);
+const currentPosts = sortedPosts.slice(0, config.settings.teamPagination);
+console.log("Author Data:", members);
+---
+
+<Base title={"Team | Rotaract Club of Vadodara"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Team")} class="page-heading h2" />
+
+      <Members members={currentPosts} />
+      <Pagination section={"team"} currentPage={1} totalPages={totalPages} />
+    </div>
+  </section>
+</Base>

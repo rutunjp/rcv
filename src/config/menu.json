@@ -9,27 +9,13 @@
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
+      "name": "Projects",
+      "url": "/projects"
     },
+
     {
-      "name": "Pages",
-      "url": "",
-      "hasChildren": true,
-      "children": [
-        {
-          "name": "Board",
-          "url": "/board"
-        },
-        {
-          "name": "Projects",
-          "url": "/categories"
-        },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        }
-      ]
+      "name": "Team",
+      "url": "/team"
     }
   ],
   "footer": [

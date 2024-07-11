@@ -4,7 +4,7 @@ description: "meta description"
 date: 2024-06-20T05:00:00Z
 image: "/images/posts/rotafair.jpg"
 categories: ["Community"]
-authors: ["Meet Patel"]
+members: ["Meet Patel"]
 tags: []
 draft: false
 ---

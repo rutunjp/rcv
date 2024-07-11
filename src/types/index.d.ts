@@ -5,9 +5,9 @@ export interface TAuthor {
   collection: string; 
   data: {
     title: string;
-    image: string;
+    image:   string;
     description: string;
-    position:string;
+    designationstring;
     social: {
       facebook: string;
       twitter: string;
@@ -26,7 +26,7 @@ export interface TPost {
     title: string;
     description: string;
     date: any;
-    image: string;
+    image:   string;
     authors: string[];
     categories: string[];
     tags: string[];

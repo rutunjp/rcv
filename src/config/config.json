@@ -25,12 +25,17 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Copyright © 2024. Open for all the Rotaract Clubs ❤"
+    "copyright": "Copyright © 2024. Keep Rotaracting ❤"
   },
 
   "contactinfo": {
     "address": "Rotary Hall, 62 Haribhakti Colony, Opp. Rajlaxmi Complex, O.P. Road, Vadodara - 390 015",
     "email": "rotaractvadodara@gmail.com",
     "phone": "+91 85117-43432"
+  },
+  "socialLinks": {
+    "instagram": "https://www.instagram.com/rotaract_vadodara/",
+    "email": "rotaractvadodara@gmail.com",
+    "linkedin": "https://www.linkedin.com/company/rotaract-vadodara/"
   }
 }

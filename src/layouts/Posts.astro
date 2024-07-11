@@ -5,9 +5,13 @@ import { getSinglePage } from "@/lib/contentParser.astro";
 import dateFormat from "@/lib/utils/dateFormat";
 import { humanize, slugify } from "@/lib/utils/textConverter";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
-const authors = await getSinglePage("authors");
+const members = await getSinglePage("members");
+ 
 const { summary_length } = config.settings;
 const { className, posts, fluid } = Astro.props;
+const stripMarkdown = (markdown) => {
+  return markdown.replace(/[#*_`~>]/g, "");
+};
 ---
 
 <div
@@ -32,27 +36,27 @@ const { className, posts, fluid } = Astro.props;
         )}
         <ul class="mt-6 mb-4 flex flex-wrap items-center text-text">
           <li class="mr-5">
-            {authors
-              .filter((author) =>
-                post.data.authors
-                  .map((author: string) => slugify(author))
-                  .includes(slugify(author.data.title))
+            {members
+              .filter((member) =>
+                post.data.members
+                  .map((member: string) => slugify(member))
+                  .includes(slugify(member.data.title))
               )
-              .map((author) => (
+              .map((member) => (
                 <a
-                  href={`/team/${slugify(author.data.title)}`}
+                  href={`/team/${slugify(member.data.title)}`}
                   class="flex items-center hover:text-primary font-medium"
                 >
-                  {author.data.image && (
+                  {member.data.image && (
                     <Image
-                      src={author.data.image}
-                      alt={author.data.title}
+                      src={member.data.image}
+                      alt={member.data.title}
                       height={50}
                       width={50}
                       class="mr-2 h-6 w-6 rounded-full"
                     />
                   )}
-                  <span>{author.data.title}</span>
+                  <span>{member.data.title}</span>
                 </a>
               ))}
           </li>
@@ -67,7 +71,7 @@ const { className, posts, fluid } = Astro.props;
                 {post.data.categories.map((category: string, i: number) => (
                   <li class="inline-block">
                     <a
-                      href={`/categories/${slugify(category)}`}
+                      href={`/projects/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
                       {humanize(category)}
@@ -88,10 +92,12 @@ const { className, posts, fluid } = Astro.props;
           </a>
         </h3>
         <p class="text-text">
-          {post.body?.slice(
-            0,
-            Number(
-              i === 0 && fluid != false ? summary_length * 2 : summary_length
+          {stripMarkdown(
+            post.body?.slice(
+              0,
+              Number(
+                i === 0 && fluid != false ? summary_length * 2 : summary_length
+              )
             )
           )}
           ...

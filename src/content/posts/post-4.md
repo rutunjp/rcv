@@ -3,8 +3,7 @@ title: "Rotatrek 9.0"
 description: "meta description"
 date: 2023-12-09T05:00:00Z
 image: "/images/posts/rotatrekGrpPhoto.jpg"
-categories: ["International", "Club"]
-
+categories: ["Professional"]
 members: ["Aditya Purohit"]
 tags: ["Adventure"]
 draft: false

@@ -8,12 +8,12 @@ import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
 
-const allAuthors = await getSinglePage("authors");
+const allMembers = await getSinglePage("members");
 const posts = await getSinglePage("posts");
 const { post } = Astro.props;
 const similarPosts = similerItems(post, posts, post.slug);
 const { Content } = await post.render();
-const { title, description, authors, categories, image, date, tags } =
+const { title, description, members, categories, image, date, tags } =
   post.data;
 ---
 
@@ -25,27 +25,27 @@ const { title, description, authors, categories, image, date, tags } =
         <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
-              allAuthors
-                .filter((author) =>
-                  authors
-                    .map((author: string) => slugify(author))
-                    .includes(slugify(author.data.title))
+              allMembers
+                .filter((member) =>
+                  members
+                    .map((member: string) => slugify(member))
+                    .includes(slugify(member.data.title))
                 )
-                .map((author, i) => (
+                .map((member, i) => (
                   <a
-                    href={`/team/${slugify(author.slug)}`}
+                    href={`/team/${slugify(member.slug)}`}
                     class="flex items-center hover:text-primary font-medium"
                   >
-                    {author.data.image && (
+                    {member.data.image && (
                       <Image
-                        src={author.data.image}
-                        alt={author.data.title}
+                        src={member.data.image}
+                        alt={member.data.title}
                         height={50}
                         width={50}
                         class="mr-2 h-6 w-6 rounded-full"
                       />
                     )}
-                    <span>{author.data.title}</span>
+                    <span>{member.data.title}</span>
                   </a>
                 ))
             }
@@ -62,7 +62,7 @@ const { title, description, authors, categories, image, date, tags } =
                   categories.map((category: string, i: number) => (
                     <li class="inline-block">
                       <a
-                        href={`/categories/${slugify(category)}`}
+                        href={`/projects/${slugify(category)}`}
                         class="mr-2 hover:text-primary font-medium"
                       >
                         {humanize(category)}
@@ -104,7 +104,7 @@ const { title, description, authors, categories, image, date, tags } =
                     href={`/tags/${slugify(tag)}`}
                     class="block rounded-lg bg-theme-light px-4 py-2 font-semibold text-dark text-sm hover:text-primary transition duration-300"
                   >
-                    #{humanize(tag)}
+                    {humanize(tag)}
                   </a>
                 </li>
               ))

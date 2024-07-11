@@ -1,12 +1,10 @@
 ---
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
-import Pagination from "@/layouts/components/Pagination.astro";
 import Posts from "@/layouts/Posts.astro";
 import { getEntryBySlug } from "astro:content";
 import { Image } from "astro:assets";
 import { markdownify } from "@/lib/utils/textConverter";
-
 import { getSinglePage } from "@/lib/contentParser.astro";
 import { sortByDate } from "@/lib/utils/sortFunctions";
 import PresidentMessage from "./presidentMessage.astro";
@@ -15,7 +13,7 @@ const { Content } = await entry.render();
 const { title, description, meta_title, image, what_i_do } = entry.data;
 const posts = await getSinglePage("posts");
 const sortedPosts = sortByDate(posts);
-const totalPages = Math.ceil(posts.length / config.settings.pagination);
+const featuredPosts = await getSinglePage("featuredPosts");
 const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 ---
 
@@ -57,10 +55,13 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
   <section class="section">
     <PresidentMessage />
   </section>
+
   <section class="section">
     <div class="container">
-      <Posts posts={currentPosts} className="mb-16" />
-      <Pagination currentPage={1} totalPages={totalPages} />
+      <!-- <h2 class="h2 mb-10 text-center text-primary">Featured Posts</h2>
+      <Posts fluid={false} posts={featuredPosts} className="mb-16" /> -->
+      <h2 class="h2 mb-10 text-center text-primary">Recent Events</h2>
+      <Posts fluid={false} posts={currentPosts} className="mb-16" />
     </div>
   </section>
 </Base>

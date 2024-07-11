@@ -8,21 +8,36 @@ const postsCollection = defineCollection({
     meta_title: z.string().optional(),
     description: z.string().optional(),
     date: z.date().optional(),
-    image: z.string().optional(),
-    authors: z.array(z.string()).default(["admin"]),
+    image:   z.string().optional(),
+    members: z.array(z.string()).default(["admin"]),
+    categories: z.array(z.string()).default(["others"]),
+    tags: z.array(z.string()).default(["others"]),
+    draft: z.boolean().optional(),
+  }),
+});
+const featuredPostsCollection = defineCollection({
+  schema: z.object({
+    id: z.string().optional(),
+    title: z.string(),
+    meta_title: z.string().optional(),
+    description: z.string().optional(),
+    date: z.date().optional(),
+    image:   z.string().optional(),
+    members: z.array(z.string()).default(["admin"]),
     categories: z.array(z.string()).default(["others"]),
     tags: z.array(z.string()).default(["others"]),
     draft: z.boolean().optional(),
   }),
 });
 
-// Author collection schema
-const authorsCollection = defineCollection({
+// Member collection schema
+const membersCollection = defineCollection({
   schema: z.object({
     id: z.string().optional(),
     title: z.string(),
     meta_title: z.string().optional(),
-    image: z.string().optional(),
+    image:   z.string().optional(),
+    designation: z.string().optional(),
     description: z.string().optional(),
     social: z
       .object({
@@ -42,7 +57,7 @@ const pagesCollection = defineCollection({
     title: z.string(),
     meta_title: z.string().optional(),
     description: z.string().optional(),
-    image: z.string().optional(),
+    image:   z.string().optional(),
     layout: z.string().optional(),
     draft: z.boolean().optional(),
   }),
@@ -52,5 +67,6 @@ const pagesCollection = defineCollection({
 export const collections = {
   posts: postsCollection,
   pages: pagesCollection,
-  authors: authorsCollection,
+  featuredPosts: featuredPostsCollection,
+  members: membersCollection,
 };
