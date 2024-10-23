@@ -7,6 +7,7 @@ import dateFormat from "@/lib/utils/dateFormat";
 import similerItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { BiCalendarEdit, BiCategoryAlt } from "react-icons/bi";
+import Carousel from "./components/carousel.astro";
 
 const allMembers = await getSinglePage("members");
 const posts = await getSinglePage("posts");
@@ -22,7 +23,7 @@ const { title, description, members, categories, image, date, tags } =
     <article class="row justify-center">
       <div class="md:col-10 text-center">
         <h1 set:html={markdownify(title)} class="h2" />
-        <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
+        <!-- <ul class="mt-4 flex flex-wrap items-center justify-center text-text">
           <li class="mx-3">
             {
               allMembers
@@ -74,11 +75,12 @@ const { title, description, members, categories, image, date, tags } =
               </ul>
             </>
           </li>
-        </ul>
+        </ul> -->
       </div>
 
       <div class="col-12 mt-8 mb-2">
-        {
+        <Carousel imageFolder="rotafair" />
+        <!-- {
           image && (
             <Image
               src={image}
@@ -88,7 +90,7 @@ const { title, description, members, categories, image, date, tags } =
               class="rounded-lg"
             />
           )
-        }
+        } -->
       </div>
 
       <div class="md:col-10">

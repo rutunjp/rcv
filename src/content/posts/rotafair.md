@@ -1,10 +1,11 @@
 ---
-title: Rotafair 2023
+title: Rotafair
 description: "meta description"
 date: 2024-06-20T05:00:00Z
 image: "/images/posts/rotafair.jpg"
 categories: ["Community"]
 members: ["Meet Patel"]
+imageFolder: "rotafair" 
 tags: []
 draft: false
 ---

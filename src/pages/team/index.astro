@@ -10,7 +10,6 @@ const members = await getSinglePage("members");
 const sortedPosts = sortByDate(members);
 const totalPages = Math.ceil(members.length / config.settings.teamPagination);
 const currentPosts = sortedPosts.slice(0, config.settings.teamPagination);
-console.log("Author Data:", members);
 ---
 
 <Base title={"Team | Rotaract Club of Vadodara"}>

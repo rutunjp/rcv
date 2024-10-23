@@ -1,0 +1,75 @@
+---
+import Image from "astro/components/Image.astro";
+import { Picture } from "astro:assets";
+
+import.meta.glob;
+const { imageFolder } = Astro.props;
+title: "Hero Carousel";
+const allImages = import.meta.glob("/src/assets/**/*.{jpg,jpeg,png,gif,webp}", {
+  eager: true,
+});
+
+const photos = Object.keys(allImages).filter((path) =>
+  path.includes(`/src/assets/${imageFolder}/`)
+);
+---
+
+<article
+  class="relative rounded:lg md:rounded-xl w-full max-w-full aspect-video mx-auto h-auto overflow-hidden"
+>
+  <div class="flex transition-transform duration-300 ease-in-out" id="carousel">``
+    {
+      photos.map((photo, index) => (
+        <div class="w-full flex-shrink-0" data-index={index}>
+          <Picture
+            src={photo}
+            alt={`Slide ${index + 1}`}
+            width={1200}
+            formats={["avif", "webp"]}
+            height={800}
+            class="w-full h-auto aspect-video rounded:lg md:rounded-xl"
+          />
+        </div>
+      ))
+    }
+  </div>
+  <button
+    class="absolute top-1/2 left-4 rounded-lg transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2"
+    id="prev"
+  >
+    ❮
+  </button>
+  <button
+    class="absolute top-1/2 right-4 rounded-lg transform -translate-y-1/2 bg-black bg-opacity-50 text-white px-3 py-2"
+    id="next"
+  >
+    ❯
+  </button>
+</article>
+
+<script>
+  const carousel = document.getElementById("carousel");
+  const slides = document.querySelectorAll("[data-index]");
+  const prevButton = document.getElementById("prev");
+  const nextButton = document.getElementById("next");
+  let currentIndex = 0;
+
+  function showSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  prevButton?.addEventListener("click", () => {
+    showSlide(currentIndex - 1);
+  });
+
+  nextButton?.addEventListener("click", () => {
+    showSlide(currentIndex + 1);
+  });
+
+  setInterval(() => {
+    showSlide(currentIndex + 1);
+  }, 5000);
+</script>
