@@ -17,7 +17,7 @@ const photos = Object.keys(allImages).filter((path) =>
 <article
   class="relative rounded:lg md:rounded-xl w-full max-w-full aspect-video mx-auto h-auto overflow-hidden"
 >
-  <div class="flex transition-transform duration-300 ease-in-out" id="carousel">``
+  <div class="flex transition-transform duration-300 ease-in-out" id="carousel">
     {
       photos.map((photo, index) => (
         <div class="w-full flex-shrink-0" data-index={index}>
