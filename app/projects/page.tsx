@@ -100,7 +100,7 @@ export default function Projects() {
       : projects.filter((project) => project.category === filter);
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 sm:px-16 min-h-screen">
       <Head>
         <title>Projects | Rotaract Club</title>
         <meta
