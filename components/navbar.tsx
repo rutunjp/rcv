@@ -3,10 +3,10 @@ import Link from "next/link";
 import logo from "@/public/images/logos/rcvLogo.png";
 export default function Navbar() {
   return (
-    <nav className="sticky  sm:px-16 top-0 w-full p-4 flex justify-between items-center">
+    <nav className="sticky sm:px-16 top-0 w-full p-4 flex justify-between items-center">
       <div className="flex items-center">
         <Link href="/" className="text-2xl font-bold">
-          <div className="w-[80%] sm:w-full  max-w-40 aspect-video rounded-4xl ">
+          <div className="w-[80%] sm:w-full  max-w-40   rounded-4xl ">
             <Image
               src={logo} // Upload your phone pic to /public/photos NOW
               alt="Rotaract crew"

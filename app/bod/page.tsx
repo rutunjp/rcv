@@ -120,7 +120,7 @@ export default function Team() {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="   ">
       <Head>
         <title>Our Team | Rotaract Club</title>
         <meta
