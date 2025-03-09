@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 interface Project {
   id: number;
@@ -71,14 +72,14 @@ const project: Project = {
 export default function ProjectDetail() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className=" ">
       <Head>
         <title>{project.title} | Rotaract Club Projects</title>
         <meta name="description" content={project.description} />
       </Head>
 
       {/* Project navigation breadcrumb */}
-      <div className="bg-white shadow-sm">
+      <div className=" ">
         <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center text-sm">
             <Link
@@ -146,12 +147,18 @@ export default function ProjectDetail() {
             <div className="columns-1 sm:columns-2 gap-4 space-y-4">
               {project.images.map((image, index) => (
                 <div key={index} className="break-inside-avoid mb-4">
-                  <img
-                    src={image}
-                    alt={`${project.title} - Image ${index + 1}`}
-                    className="w-full h-auto rounded-lg hover:opacity-90 transition-opacity cursor-pointer"
-                    onClick={() => setSelectedImage(image)}
-                  />
+                  <div className="relative rounded-lg overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={`${project.title} - Image ${index + 1}`}
+                      width={800}
+                      height={600}
+                      className="w-full h-auto hover:opacity-90 transition-opacity cursor-pointer rounded-lg"
+                      onClick={() => setSelectedImage(image)}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      priority={index < 2}
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -258,7 +265,7 @@ export default function ProjectDetail() {
         </div>
       </main>
 
-      {/* Lightbox Modal - Only shows when an image is selected */}
+      {/* Lightbox Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
@@ -282,11 +289,16 @@ export default function ProjectDetail() {
               />
             </svg>
           </button>
-          <img
-            src={selectedImage}
-            alt="Enlarged project photo"
-            className="max-w-full max-h-[90vh] object-contain"
-          />
+          <div className="relative w-full max-w-4xl">
+            <Image
+              src={selectedImage}
+              alt="Enlarged project photo"
+              width={1920}
+              height={1080}
+              className="w-full h-auto max-h-[80vh] object-contain"
+              priority
+            />
+          </div>
         </div>
       )}
     </div>
