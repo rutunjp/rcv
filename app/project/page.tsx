@@ -48,7 +48,7 @@ const project: Project = {
   images: [
     "/images/projects/hero.jpg",
     "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
+    "/images/projects/donbosco.jpg",
     "/images/projects/hero.jpg",
     "/images/projects/hero.jpg",
     "/images/projects/hero.jpg",
@@ -69,9 +69,7 @@ const project: Project = {
 };
 
 export default function ProjectDetail() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(
-    project.images[0]
-  );
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
     <div className="bg-gray-50 min-h-screen">
       <Head>
@@ -121,10 +119,33 @@ export default function ProjectDetail() {
         {/* Main content: Masonry gallery + Sticky description */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Masonry Photo Gallery - Left Column */}
-          <div className="lg:w-3/5 h-[calc(100vh-200px)] overflow-y-auto pr-2 pb-8 masonry-gallery">
+          <div
+            className="lg:w-3/5 h-[calc(100vh-200px)] overflow-y-auto pr-2 pb-8 masonry-gallery"
+            style={{
+              scrollbarWidth: "thin",
+              scrollbarColor: "#FF5733 #f3f4f6",
+              msOverflowStyle: "none",
+            }}
+          >
+            <style jsx>{`
+              div::-webkit-scrollbar {
+                width: 6px;
+              }
+              div::-webkit-scrollbar-track {
+                background: #f3f4f6;
+                border-radius: 10px;
+              }
+              div::-webkit-scrollbar-thumb {
+                background: #ff5733;
+                border-radius: 10px;
+              }
+              div::-webkit-scrollbar-thumb:hover {
+                background: #ff4520;
+              }
+            `}</style>
             <div className="columns-1 sm:columns-2 gap-4 space-y-4">
               {project.images.map((image, index) => (
-                <div key={index} className="break-inside-avoid">
+                <div key={index} className="break-inside-avoid mb-4">
                   <img
                     src={image}
                     alt={`${project.title} - Image ${index + 1}`}
