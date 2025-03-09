@@ -96,7 +96,7 @@ const boardMembers: BoardMember[] = [
   },
   {
     id: 9,
-    name: "Priya Sharma",
+    name: "Priya Sharmaa",
     role: "Public Relations Officer",
     photo: "/images/team/priya.jpg",
     email: "priya.sharma@rotaract.org",
