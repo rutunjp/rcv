@@ -13,18 +13,18 @@ type ProjectStat = {
 
 const projectStats: ProjectStat[] = [
   {
-    value: "15+",
+    value: "15",
     label: "Community Service",
-    description: "Local impact projects",
+    description: "",
   },
-  { value: "10+", label: "International", description: "Global initiatives" },
+  { value: "10", label: "International", description: "" },
   {
-    value: "12+",
-    label: "Professional Dev",
-    description: "Career growth events",
+    value: "12",
+    label: "Professional Service",
+    description: " ",
   },
-  { value: "8+", label: "Club Service", description: "Internal activities" },
-  { value: "45+", label: "Total Projects", description: "This Rotary year" },
+  { value: "8", label: "Club Service", description: "" },
+  { value: "45", label: "Total Projects", description: "" },
 ] as const;
 
 // Modified carouselImages array - removed 'as const' for dynamic flexibility
@@ -40,25 +40,25 @@ export default function Hero() {
     <section className="relative min-h-screen pt-20">
       {/* Background Pattern with Grain Effect */}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="container mx-auto px-4 sm:px-4  py-12">
         <div className="flex  sm:px-16 px-4 w-full flex-col justify-between md:flex-row items-start gap-16 min-h-[80vh] py-12">
-          <div className="flex flex-col justify-center w-full md:w-[45%] space-y-8 sticky top-24">
+          <div className="flex flex-col justify-center w-full md:w-[45%] space-y-5 sticky top-24">
             {/* Eyebrow text */}
             <p className="text-[#FF5733] font-semibold tracking-wide uppercase">
               Welcome to Rotaract Vadodara
             </p>
 
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
               Together We <span className="text-[#FF5733]">Serve Better</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-gray-600 max-w-xl">
+            <p className="text-lg md:text-xl text-gray-600 max-w-xl">
               Join our community of young leaders making a difference through
               service, friendship, and professional growth.
             </p>
 
             {/* Updated Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4">
               {projectStats.map((stat, index) => (
                 <div
                   key={index}
@@ -68,7 +68,7 @@ export default function Hero() {
                       : ""
                   }`}
                 >
-                  <p className="text-3xl font-bold text-[#FF5733]">
+                  <p className="text-2xl font-bold text-[#FF5733]">
                     {stat.value}
                   </p>
                   <p className="text-sm font-semibold text-gray-800">
@@ -105,7 +105,7 @@ export default function Hero() {
             <MasonryVerticalCarousel
               images={carouselImages}
               columns={2}
-              className="h-[calc(100vh-96px)]" // Adjusted height for hero section
+              className="h-[80vh]" // Adjusted height for hero section
               // autoScroll={true}
               // speed={20} // Slower speed for smoother scrolling
             />
