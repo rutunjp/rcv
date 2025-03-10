@@ -18,6 +18,7 @@
     "embla-carousel-react": "^8.5.2",
     "lucide-react": "^0.475.0",
     "next": "14.2.24",
+    "rac-vadodara": "link:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^3.0.2",

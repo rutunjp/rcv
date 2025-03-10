@@ -22,6 +22,15 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
                 className="w-auto h-9 sm:h-12"
               />
             </Link>
+            <Link href="https://skitre.ai" className="relative z-10">
+              <Image
+                src="/images/logos/skitrelogo.png"
+                alt="Skitre.ai"
+                width={160}
+                height={60}
+                className="w-auto h-10 sm:h-12"
+              />
+            </Link>
             <Link href="https://rotaract3060.com/" className="relative z-10">
               <Image
                 src="/images/logos/district3060White.png"
@@ -31,10 +40,22 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
                 className="w-auto h-9 sm:h-12"
               />
             </Link>
-            <Link href="https://skitre.ai" className="relative z-10">
+            <Link
+              href="https://www.instagram.com/drr_rohitajmera/"
+              className="relative z-10"
+            >
               <Image
-                src="/images/logos/skitrelogo.png"
-                alt="Skitre.ai"
+                src="/images/logos/ConnectWhite.png"
+                alt="Connect"
+                width={160}
+                height={60}
+                className="w-auto h-9 sm:h-12"
+              />
+            </Link>
+            <Link href="https://www.rotary.org/en" className="relative z-10">
+              <Image
+                src="/images/logos/magicWhite.png"
+                alt="Magic"
                 width={160}
                 height={60}
                 className="w-auto h-9 sm:h-12"
