@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 // import Footer from "@/components/footer";
+import { headers } from 'next/headers';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +14,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const headersList = headers();
+  const hideNavbar = headersList.get('x-hide-navbar') === 'true';
+
   return (
     <html lang="en">
       <body className="min-h-screen bg-white">
-        <Navbar />
+        {!hideNavbar && <Navbar />}
         <main className="relative">{children}</main>
         {/* <Footer /> */}
       </body>
