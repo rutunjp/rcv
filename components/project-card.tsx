@@ -8,7 +8,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Link 
+    <Link
       href={`/projects/${project.slug}`}
       className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
     >
@@ -21,14 +21,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
       </div>
-      
+
       <div className="absolute bottom-0 p-6 w-full">
         <span className="inline-block px-3 py-1 bg-white/90 text-[#FF5733] text-sm font-medium rounded-full mb-2">
           {project.category}
         </span>
-        <h3 className="text-xl font-bold text-white mb-2">
-          {project.title}
-        </h3>
+        <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
         <p className="text-white/90 text-sm line-clamp-2">
           {project.description}
         </p>
@@ -41,4 +39,4 @@ export function ProjectCard({ project }: ProjectCardProps) {
       )}
     </Link>
   );
-} 
+}

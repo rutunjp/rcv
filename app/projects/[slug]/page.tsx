@@ -23,8 +23,8 @@ export async function generateStaticParams() {
   const projects = await import("@/lib/data/projects").then(
     (mod) => mod.projects
   );
-  
+
   return projects.map((project) => ({
     slug: project.slug,
   }));
-} 
+}

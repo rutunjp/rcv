@@ -1,5 +1,29 @@
 import { ReactNode } from 'react';
 
+export interface Project {
+    id: string;
+    slug: string;
+    title: string;
+    category: string;
+    description: string;
+    fullDescription: string;
+    date: string;
+    chairs: string[];
+    location: string;
+    impact: string;
+    partners: string[];
+    images: string[];
+    nextProject?: {
+        slug: string;
+        title: string;
+        category: string;
+    };
+    previousProject?: {
+        slug: string;
+        title: string;
+        category: string;
+    };
+}
 export interface BoardMember {
     portfolio?: string;
     instagram?: string;

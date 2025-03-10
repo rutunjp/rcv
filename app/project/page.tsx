@@ -5,19 +5,40 @@ import Head from "next/head";
 import Image from "next/image";
 import { Masonry } from "@/components/ui/masonry";
 
-interface Project {
+interface ProjectDetails {
   id: string;
   slug: string;
   title: string;
   category: string;
   description: string;
   fullDescription: string;
-  date: string;
-  chairs: string[];
+  date: {
+    start: string;
+    end?: string;
+  };
+  chairs: {
+    name: string;
+    role?: string;
+  }[];
   location: string;
-  impact: string;
-  partners: string[];
-  images: string[];
+  impact: {
+    beneficiaries: number;
+    description: string;
+    metrics?: {
+      label: string;
+      value: string | number;
+    }[];
+  };
+  partners?: {
+    name: string;
+    logo?: string;
+    website?: string;
+  }[];
+  images: {
+    src: string;
+    alt: string;
+    caption?: string;
+  }[];
   nextProject?: {
     slug: string;
     title: string;
@@ -30,55 +51,59 @@ interface Project {
   };
 }
 // Sample project data - replace with your actual data
-const project: Project = {
-  id: "1",
-  slug: "clean-water-initiative",
-  title: "Clean Water Initiative",
-  category: "International",
-  description:
-    "Partnering with global organizations to provide clean drinking water to communities in need. Our club members helped install water filtration systems in three villages and conducted educational workshops on water conservation.",
-  fullDescription:
-    "Access to clean water is a fundamental human right, yet millions around the world still lack this basic necessity. Our Rotaract club partnered with Water for All International to make a difference in communities facing severe water shortages.\n\nOver a period of six months, our members raised funds, coordinated logistics, and traveled to implement sustainable water solutions. The project had three main components:\n\n1. Installation of water filtration systems in three rural villages, providing clean drinking water to over 2,000 people\n\n2. Educational workshops on water conservation and sanitation practices, empowering locals with knowledge to maintain their new systems\n\n3. Distribution of personal water filters to families in remote areas beyond the reach of centralized systems\n\nThe impact of this initiative extends beyond immediate access to clean water. With reduced waterborne illnesses, children can attend school more regularly, and adults can focus on work and community development. We've established a maintenance fund and training program to ensure the sustainability of these systems for years to come.",
-  date: "January 15-30, 2025",
-  chairs: ["Maria Rodriguez", "James Chen"],
-  location: "Nariokotome, Kenya",
-  impact:
-    "Provided clean water access to over 2,000 people across three villages",
-  partners: [
-    "Water for All International",
-    "Local Rotary Club",
-    "Kenyan Ministry of Water",
-  ],
-  images: [
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/donbosco.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-    "/images/projects/hero.jpg",
-  ],
-  nextProject: {
-    slug: "local-food-drive",
-    title: "Local Food Drive",
-    category: "Community",
-  },
-  previousProject: {
-    slug: "youth-mentorship-program",
-    title: "Youth Mentorship Program",
-    category: "Professional",
-  },
-};
+// const project: Project = {
+//   id: "1",
+//   slug: "clean-water-initiative",
+//   title: "Clean Water Initiative",
+//   category: "International",
+//   description:
+//     "Partnering with global organizations to provide clean drinking water to communities in need. Our club members helped install water filtration systems in three villages and conducted educational workshops on water conservation.",
+//   fullDescription:
+//     "Access to clean water is a fundamental human right, yet millions around the world still lack this basic necessity. Our Rotaract club partnered with Water for All International to make a difference in communities facing severe water shortages.\n\nOver a period of six months, our members raised funds, coordinated logistics, and traveled to implement sustainable water solutions. The project had three main components:\n\n1. Installation of water filtration systems in three rural villages, providing clean drinking water to over 2,000 people\n\n2. Educational workshops on water conservation and sanitation practices, empowering locals with knowledge to maintain their new systems\n\n3. Distribution of personal water filters to families in remote areas beyond the reach of centralized systems\n\nThe impact of this initiative extends beyond immediate access to clean water. With reduced waterborne illnesses, children can attend school more regularly, and adults can focus on work and community development. We've established a maintenance fund and training program to ensure the sustainability of these systems for years to come.",
+//   date: "January 15-30, 2025",
+//   chairs: ["Maria Rodriguez", "James Chen"],
+//   location: "Nariokotome, Kenya",
+//   impact:
+//     "Provided clean water access to over 2,000 people across three villages",
+//   partners: [
+//     "Water for All International",
+//     "Local Rotary Club",
+//     "Kenyan Ministry of Water",
+//   ],
+//   images: [
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/donbosco.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//     "/images/projects/hero.jpg",
+//   ],
+//   nextProject: {
+//     slug: "local-food-drive",
+//     title: "Local Food Drive",
+//     category: "Community",
+//   },
+//   previousProject: {
+//     slug: "youth-mentorship-program",
+//     title: "Youth Mentorship Program",
+//     category: "Professional",
+//   },
+// };
 
-export default function ProjectDetail() {
+interface ProjectDetailProps {
+  project: ProjectDetails;
+}
+
+export default function ProjectDetail({ project }: ProjectDetailProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   // Transform project images to the required format
-  const masonryImages = project.images.map((src) => ({
-    src,
-    alt: project.title,
+  const masonryImages = project.images.map((image) => ({
+    src: image.src,
+    alt: image.alt || project.title,
   }));
 
   return (
@@ -151,7 +176,10 @@ export default function ProjectDetail() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 text-sm">
                   <div>
                     <h3 className="text-gray-500 font-medium mb-1">Date</h3>
-                    <p className="text-gray-900">{project.date}</p>
+                    <p className="text-gray-900">
+                      {project.date.start}
+                      {project.date.end && ` - ${project.date.end}`}
+                    </p>
                   </div>
                   <div>
                     <h3 className="text-gray-500 font-medium mb-1">Location</h3>
@@ -161,29 +189,54 @@ export default function ProjectDetail() {
                     <h3 className="text-gray-500 font-medium mb-1">
                       Project Chairs
                     </h3>
-                    <p className="text-gray-900">{project.chairs.join(", ")}</p>
+                    <p className="text-gray-900">
+                      {project.chairs
+                        .map(
+                          (chair) =>
+                            `${chair.name}${
+                              chair.role ? ` (${chair.role})` : ""
+                            }`
+                        )
+                        .join(", ")}
+                    </p>
                   </div>
-                  <div>
+                  {/* <div>
                     <h3 className="text-gray-500 font-medium mb-1">Impact</h3>
-                    <p className="text-gray-900">{project.impact}</p>
-                  </div>
+                    <p className="text-gray-900">
+                      {project.impact.description}
+                    </p>
+                    {project.impact.metrics && (
+                      <div className="mt-2 space-y-1">
+                        {project.impact.metrics.map((metric, index) => (
+                          <div key={index} className="text-sm">
+                            <span className="text-gray-500">
+                              {metric.label}:
+                            </span>{" "}
+                            <span className="font-medium">{metric.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div> */}
                 </div>
 
-                <div className="mt-6">
-                  <h3 className="text-gray-500 font-medium mb-1 text-sm">
-                    Partners
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.partners.map((partner, index) => (
-                      <span
-                        key={index}
-                        className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full"
-                      >
-                        {partner}
-                      </span>
-                    ))}
+                {project.partners && (
+                  <div className="mt-6">
+                    <h3 className="text-gray-500 font-medium mb-1 text-sm">
+                      Partners
+                    </h3>
+                    <div className="flex flex-wrap gap-2">
+                      {project.partners?.map((partner, index) => (
+                        <span
+                          key={index}
+                          className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full"
+                        >
+                          {partner.name}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
+                )}
               </div>
 
               {/* Project Navigation */}

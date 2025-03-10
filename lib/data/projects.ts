@@ -14,7 +14,7 @@ export const projects: Project[] = [
     category: "Community Service",
     description: "A tree plantation and cleanliness drive to promote environmental sustainability.",
     fullDescription:
-      "In collaboration with the municipal corporation, we organized a city-wide cleanup drive along with tree plantations in public parks. Volunteers participated in waste segregation and awareness sessions on waste management.",
+      "In collaboration with the municipal corporation, we organized a city-wide cleanup drive along with tree plantations in public parks. Volunteers participated in waste segregation and awareness sessions on waste management.In collaboration with the municipal corporation, we organized a city-wide cleanup drive along with tree plantations in public parks. Volunteers participated in waste segregation and awareness sessions on waste management.",
     date: {
       start: "2025-02-10",
       end: "2025-02-10",
@@ -42,16 +42,7 @@ export const projects: Project[] = [
     featured: true,
     status: "completed",
     tags: ["Environment", "Cleanliness", "Community"],
-    nextProject: {
-      slug: "ai-for-all-webinar",
-      title: "AI for All - Awareness Webinar",
-      category: "Professional Development",
-    },
-    previousProject: {
-      slug: "youth-leadership-summit",
-      title: "Youth Leadership Summit",
-      category: "Youth Service",
-    },
+
   },
   {
     id: "2",
