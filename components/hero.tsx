@@ -37,77 +37,79 @@ const carouselImages = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden pt-24">
+    <section className="relative min-h-screen pt-20">
       {/* Background Pattern with Grain Effect */}
 
-      <div className="flex  sm:px-16 px-4 w-full flex-col justify-between md:flex-row items-start gap-16 min-h-[80vh] py-12">
-        <div className="flex flex-col justify-center w-full md:w-[45%] space-y-8 sticky top-24">
-          {/* Eyebrow text */}
-          <p className="text-[#FF5733] font-semibold tracking-wide uppercase">
-            Welcome to Rotaract Vadodara
-          </p>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex  sm:px-16 px-4 w-full flex-col justify-between md:flex-row items-start gap-16 min-h-[80vh] py-12">
+          <div className="flex flex-col justify-center w-full md:w-[45%] space-y-8 sticky top-24">
+            {/* Eyebrow text */}
+            <p className="text-[#FF5733] font-semibold tracking-wide uppercase">
+              Welcome to Rotaract Vadodara
+            </p>
 
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Together We <span className="text-[#FF5733]">Serve Better</span>
-          </h1>
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              Together We <span className="text-[#FF5733]">Serve Better</span>
+            </h1>
 
-          <p className="text-lg md:text-2xl text-gray-600 max-w-xl">
-            Join our community of young leaders making a difference through
-            service, friendship, and professional growth.
-          </p>
+            <p className="text-lg md:text-2xl text-gray-600 max-w-xl">
+              Join our community of young leaders making a difference through
+              service, friendship, and professional growth.
+            </p>
 
-          {/* Updated Stats Section */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-8">
-            {projectStats.map((stat, index) => (
-              <div
-                key={index}
-                className={`${
-                  index === projectStats.length - 1
-                    ? "col-span-2 md:col-span-3 bg-[#FF5733]/5 p-4 rounded-xl"
-                    : ""
-                }`}
-              >
-                <p className="text-3xl font-bold text-[#FF5733]">
-                  {stat.value}
-                </p>
-                <p className="text-sm font-semibold text-gray-800">
-                  {stat.label}
-                </p>
-                {stat.description && (
-                  <p className="text-xs text-gray-600 mt-1">
-                    {stat.description}
+            {/* Updated Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-8">
+              {projectStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`${
+                    index === projectStats.length - 1
+                      ? "col-span-2 md:col-span-3 bg-[#FF5733]/5 p-4 rounded-xl"
+                      : ""
+                  }`}
+                >
+                  <p className="text-3xl font-bold text-[#FF5733]">
+                    {stat.value}
                   </p>
-                )}
-              </div>
-            ))}
+                  <p className="text-sm font-semibold text-gray-800">
+                    {stat.label}
+                  </p>
+                  {stat.description && (
+                    <p className="text-xs text-gray-600 mt-1">
+                      {stat.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-4 pt-4">
+              <Link href="/join">
+                <Button className="bg-[#FF5733] hover:bg-[#FF7849] text-white font-bold text-lg py-6 px-8 rounded-full transition-all duration-300 hover:scale-105">
+                  Join Us
+                </Button>
+              </Link>
+              <Link href="/projects">
+                <Button
+                  variant="outline"
+                  className="font-bold text-lg py-6 px-8 rounded-full border-2 hover:bg-[#FF5733]/5 transition-all duration-300"
+                >
+                  Our Projects
+                </Button>
+              </Link>
+            </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <Link href="/join">
-              <Button className="bg-[#FF5733] hover:bg-[#FF7849] text-white font-bold text-lg py-6 px-8 rounded-full transition-all duration-300 hover:scale-105">
-                Join Us
-              </Button>
-            </Link>
-            <Link href="/projects">
-              <Button
-                variant="outline"
-                className="font-bold text-lg py-6 px-8 rounded-full border-2 hover:bg-[#FF5733]/5 transition-all duration-300"
-              >
-                Our Projects
-              </Button>
-            </Link>
+          {/* Updated MasonryVerticalCarousel with auto-scroll */}
+          <div className="relative w-full md:w-[50%] mt-12 md:mt-0">
+            <MasonryVerticalCarousel
+              images={carouselImages}
+              columns={2}
+              className="h-[calc(100vh-96px)]" // Adjusted height for hero section
+              autoScroll={true}
+              speed={20} // Slower speed for smoother scrolling
+            />
           </div>
-        </div>
-
-        {/* Updated MasonryVerticalCarousel with auto-scroll */}
-        <div className="relative w-full md:w-[50%] mt-12 md:mt-0">
-          <MasonryVerticalCarousel
-            images={carouselImages}
-            columns={2}
-            className="h-[calc(100vh-96px)]" // Adjusted height for hero section
-            autoScroll={true}
-            speed={20} // Slower speed for smoother scrolling
-          />
         </div>
       </div>
     </section>

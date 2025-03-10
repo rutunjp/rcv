@@ -82,15 +82,15 @@ export default function ProjectDetail() {
   }));
 
   return (
-    <div className=" ">
+    <div className="pt-20 bg-white">
       <Head>
         <title>{project.title} | Rotaract Club Projects</title>
         <meta name="description" content={project.description} />
       </Head>
 
-      {/* Project navigation breadcrumb */}
-      <div className=" ">
-        <div className="container mx-auto py-4 px-4 sm:px-6 lg:px-8">
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Project navigation breadcrumb */}
+        <div className="py-4">
           <nav className="flex items-center text-sm">
             <Link
               href="/projects"
@@ -114,9 +114,7 @@ export default function ProjectDetail() {
             <span className="text-gray-900 font-medium">{project.title}</span>
           </nav>
         </div>
-      </div>
 
-      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
         {/* Project Title */}
         <div className="mb-8 text-center md:text-left">
           <div className="inline-block px-3 py-1 bg-[#FF5733] bg-opacity-10 text-[#FF5733] text-sm font-medium rounded-full mb-3">

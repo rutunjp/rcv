@@ -43,9 +43,9 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <>
-      <nav className="fixed top-0 left-0 right-0 p-4 bg-transparent backdrop-blur-md shadow-sm z-50">
-        <div className="max-w-7xl mx-auto flex justify-between items-center sm:px-6">
+    <header className="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 shadow-sm">
+      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold">
               <div className="w-[80%] sm:w-full max-w-40">
@@ -156,6 +156,6 @@ export default function Navbar() {
           </div>
         </div>
       )}
-    </>
+    </header>
   );
 }

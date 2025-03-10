@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+// import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,21 +10,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-white" />
-          <div className="absolute inset-0 opacity-30 bg-[url('/images/noise.png')] bg-repeat" />
-          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#FF5733]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#FF7849]/5 rounded-full blur-3xl" />
-        </div>
-
+      <body className="min-h-screen bg-white">
         <Navbar />
-        {children}
+        <main className="relative">{children}</main>
+        {/* <Footer /> */}
       </body>
     </html>
   );

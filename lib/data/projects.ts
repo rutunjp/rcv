@@ -5,7 +5,6 @@ export const projectCategories: ProjectCategory[] = [
   "International",
   "Professional Development",
   "Club Service",
-  "Youth Service"
 ];
 export const projects: Project[] = [
   {
@@ -92,7 +91,7 @@ export const projects: Project[] = [
     id: "3",
     slug: "youth-leadership-summit",
     title: "Youth Leadership Summit",
-    category: "Youth Service",
+    category: "Club Service",
     description: "An event aimed at fostering leadership and communication skills among young individuals.",
     fullDescription:
       "The Youth Leadership Summit brought together students, young professionals, and mentors to discuss leadership challenges and strategies. The event featured keynote speeches, panel discussions, and networking opportunities.",

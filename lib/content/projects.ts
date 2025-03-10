@@ -3,7 +3,6 @@ export type ProjectCategory =
   | "International"
   | "Professional Development"
   | "Club Service"
-  | "Youth Service";
 
 export interface Project {
   id: string;
