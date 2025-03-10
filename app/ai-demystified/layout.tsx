@@ -77,7 +77,7 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
       {/* Main content */}
       <main>{children}</main>
 
-      <nav className="container mx-auto px-4  sm:px-0">
+      <nav className="container sm:hidden mx-auto px-4  sm:px-0">
         <div className="flex sm:gap-6 sm:justify-around bg-white/10 backdrop-blur-sm rounded-full sm:w-fit  justify-around items-center h-16 p-2 px-4">
           <Link
             href="https://www.instagram.com/drr_rohitajmera/"
