@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
+import { Masonry } from "@/components/ui/masonry";
 
 interface Project {
   id: number;
@@ -71,6 +72,13 @@ const project: Project = {
 
 export default function ProjectDetail() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
+  // Transform project images to the required format
+  const masonryImages = project.images.map((src) => ({
+    src,
+    alt: project.title,
+  }));
+
   return (
     <div className=" ">
       <Head>
@@ -120,48 +128,13 @@ export default function ProjectDetail() {
         {/* Main content: Masonry gallery + Sticky description */}
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Masonry Photo Gallery - Left Column */}
-          <div
-            className="lg:w-3/5 h-[calc(100vh-200px)] overflow-y-auto pr-2 pb-8 masonry-gallery"
-            style={{
-              scrollbarWidth: "thin",
-              scrollbarColor: "#FF5733 #f3f4f6",
-              msOverflowStyle: "none",
-            }}
-          >
-            <style jsx>{`
-              div::-webkit-scrollbar {
-                width: 6px;
-              }
-              div::-webkit-scrollbar-track {
-                background: #f3f4f6;
-                border-radius: 10px;
-              }
-              div::-webkit-scrollbar-thumb {
-                background: #ff5733;
-                border-radius: 10px;
-              }
-              div::-webkit-scrollbar-thumb:hover {
-                background: #ff4520;
-              }
-            `}</style>
-            <div className="columns-1 sm:columns-2 gap-4 space-y-4">
-              {project.images.map((image, index) => (
-                <div key={index} className="break-inside-avoid mb-4">
-                  <div className="relative rounded-lg overflow-hidden">
-                    <Image
-                      src={image}
-                      alt={`${project.title} - Image ${index + 1}`}
-                      width={800}
-                      height={600}
-                      className="w-full h-auto hover:opacity-90 transition-opacity cursor-pointer rounded-lg"
-                      onClick={() => setSelectedImage(image)}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      priority={index < 2}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div className="lg:w-3/5">
+            <Masonry
+              images={masonryImages}
+              columns={2}
+              className="h-[calc(100vh-200px)]"
+              onImageClick={(image) => setSelectedImage(image.src)}
+            />
           </div>
 
           {/* Project Details - Right Column (Sticky) */}

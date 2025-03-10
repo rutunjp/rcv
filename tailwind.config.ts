@@ -57,32 +57,7 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			keyframes: {
-				carousel: {
-					'0%': { transform: 'translateX(0%)' },
-					'100%': { transform: 'translateX(-400%)' }  // 4 images * 100%
-				},
-				float: {
-					'0%, 100%': { transform: 'translateY(0)' },
-					'50%': { transform: 'translateY(-10px)' },
-				},
-				carouselFade: {
-					'0%, 20%': { opacity: '1' },
-					'25%, 95%': { opacity: '0' },
-					'100%': { opacity: '0' }
-				},
-				carouselIndicator: {
-					'0%, 20%': { transform: 'scaleX(1)' },
-					'25%, 95%': { transform: 'scaleX(0)' },
-					'100%': { transform: 'scaleX(0)' }
-				}
-			},
-			animation: {
-				carousel: 'carousel 10s linear infinite',
-				float: 'float 6s ease-in-out infinite',
-				'carousel-fade': 'carouselFade 20s infinite linear',
-				'carousel-indicator': 'carouselIndicator 20s infinite linear',
-			},
+			 
 		}
 	},
 	plugins: [animate],

@@ -1,7 +1,8 @@
+"use client";
 import { Button } from "@/components/ui/button"; // Shadcn UI
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { Masonry } from "@/components/ui/masonry";
 
 // Define types for stats
 type ProjectStat = {
@@ -25,23 +26,22 @@ const projectStats: ProjectStat[] = [
   { value: "8+", label: "Club Service", description: "Internal activities" },
   { value: "45+", label: "Total Projects", description: "This Rotary year" },
 ] as const;
+
+// Modified carouselImages array - removed 'as const' for dynamic flexibility
 const carouselImages = [
-  { src: "/images/hero.jpg", alt: "Rotaract crew in action" },
   { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
-] as const;
+  { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
+  { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
+  { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
+];
+
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden pt-24">
       {/* Background Pattern with Grain Effect */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-white" />
-        <div className="absolute inset-0 opacity-30 bg-[url('/images/noise.png')] bg-repeat" />
-        <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#FF5733]/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#FF7849]/5 rounded-full blur-3xl" />
-      </div>
 
-      <div className="flex sm:px-16 sm:container px-4 w-full flex-col justify-between   md:flex-row items-centedr min-h-[90vh] py-20">
-        <div className="flex flex-col justify-center w-full md:w-1/2 space-y-6">
+      <div className="flex  sm:px-16 px-4 w-full flex-col justify-between md:flex-row items-start gap-16 min-h-[80vh] py-12">
+        <div className="flex flex-col justify-center w-full md:w-[45%] space-y-8 sticky top-24">
           {/* Eyebrow text */}
           <p className="text-[#FF5733] font-semibold tracking-wide uppercase">
             Welcome to Rotaract Vadodara
@@ -51,7 +51,7 @@ export default function Hero() {
             Together We <span className="text-[#FF5733]">Serve Better</span>
           </h1>
 
-          <p className="text-lg md:text-2xl text-gray-600">
+          <p className="text-lg md:text-2xl text-gray-600 max-w-xl">
             Join our community of young leaders making a difference through
             service, friendship, and professional growth.
           </p>
@@ -99,44 +99,9 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Image Section with improved carousel */}
-        <div className="relative w-full md:w-[70%] mt-12 md:mt-0">
-          <div className="absolute inset-0 bg-gradient-to-t from-white/50 to-transparent z-10" />
-          <div className="relative rounded-3xl overflow-hidden h-[500px] group">
-            {carouselImages.map((image, index) => (
-              <Image
-                key={image.src}
-                src={image.src}
-                alt={image.alt}
-                width={1920}
-                height={1080}
-                className={`
-                  absolute inset-0 object-cover w-full h-full rounded-3xl shadow-2xl
-                  opacity-0 animate-carousel-fade
-                  [animation-delay:${index * 5}s]
-                `}
-                priority={index === 0}
-              />
-            ))}
-
-            {/* Carousel Indicators */}
-            <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
-              {carouselImages.map((_, index) => (
-                <div
-                  key={index}
-                  className="w-2 h-2 rounded-full bg-white/50 relative overflow-hidden"
-                >
-                  <div
-                    className="absolute inset-0 bg-white origin-left animate-carousel-indicator"
-                    style={{ animationDelay: `${index * 5}s` }}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Lighter Overlay Pattern */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#FF5733]/5 to-transparent" />
-          </div>
+        {/* Replace the existing masonry implementation with the new component */}
+        <div className="relative w-full md:w-[50%] mt-12 md:mt-0">
+          <Masonry images={carouselImages} columns={2} className="h-[700px]" />
         </div>
       </div>
     </section>

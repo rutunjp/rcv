@@ -14,7 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` antialiased`}>
+      <body className={`antialiased`}>
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-50 to-white" />
+          <div className="absolute inset-0 opacity-30 bg-[url('/images/noise.png')] bg-repeat" />
+          <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-[#FF5733]/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[#FF7849]/5 rounded-full blur-3xl" />
+        </div>
+
         <Navbar />
         {children}
       </body>
