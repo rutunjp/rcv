@@ -12,7 +12,7 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
       {/* Navbar - removed fixed positioning */}
       <header className="relative z-50 bg-[#FF5733]/50 backdrop-blur-sm">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex bg-white/10 backdrop-blur-sm rounded-full   justify-between items-center h-20 p-2 px-4">
+          <div className="flex sm:gap-6  sm:justify-around   bg-white/10 backdrop-blur-sm rounded-full sm:w-fit   justify-between items-center h-20 p-2 px-4">
             <Link href="/" className="relative z-10">
               <Image
                 src="/images/logos/rcvLogoWhite.png"

@@ -36,7 +36,7 @@ export default function AIDemystified() {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-0 relative z-10">
         <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-sm rounded-[40px] p-12 mt-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
