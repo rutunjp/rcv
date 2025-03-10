@@ -59,7 +59,7 @@ export default function AIDemystified() {
                 tasks, and give you an edge in the digital world.🚀
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              {/* <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <Link
                   href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform"
                   target="_blank"
@@ -68,10 +68,10 @@ export default function AIDemystified() {
                     Register Now
                   </Button>
                 </Link>
-              </div>
+              </div> */}
 
               {/* Event Details Grid */}
-              <div className="grid grid-cols-2 gap-6 pt-8">
+              <div className="grid grid-cols-1 gap-6 pt-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
                     <span className="text-2xl">📅</span>
@@ -96,13 +96,13 @@ export default function AIDemystified() {
                       <p className="font-medium">Online</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
+                  {/* <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
                     <span className="text-2xl">💰</span>
                     <div>
                       <p className="text-sm text-white/60">Registration</p>
                       <p className="font-medium">Free</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -110,7 +110,7 @@ export default function AIDemystified() {
               <div className="pt-8">
                 <h3 className="text-lg font-medium mb-4">Speakers</h3>
                 <div className="flex gap-6">
-                  <div className="text-center">
+                  <div className="text-center flex flex-col items-center">
                     <Image
                       src="/images/speakers/shubham.jpg"
                       alt="Shubham Gupta"
@@ -123,7 +123,7 @@ export default function AIDemystified() {
                       GenAI Expert @ Skitre.ai
                     </p>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center flex flex-col items-center">
                     <Image
                       src="/images/speakers/kp.jpg"
                       alt="Kartik Patel"

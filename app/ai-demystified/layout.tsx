@@ -15,11 +15,11 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="relative z-10">
               <Image
-                src="/images/logos/rcvLogo.png"
+                src="/images/logos/rcvLogoWhite.png"
                 alt="Rotaract Vadodara"
-                width={120}
-                height={40}
-                className="w-auto h-8"
+                width={160}
+                height={60}
+                className="w-auto h-12"
               />
             </Link>
             <Link
