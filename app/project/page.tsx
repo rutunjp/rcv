@@ -6,7 +6,8 @@ import Image from "next/image";
 import { Masonry } from "@/components/ui/masonry";
 
 interface Project {
-  id: number;
+  id: string;
+  slug: string;
   title: string;
   category: string;
   description: string;
@@ -18,19 +19,20 @@ interface Project {
   partners: string[];
   images: string[];
   nextProject?: {
-    id: number;
+    slug: string;
     title: string;
     category: string;
   };
   previousProject?: {
-    id: number;
+    slug: string;
     title: string;
     category: string;
   };
 }
 // Sample project data - replace with your actual data
 const project: Project = {
-  id: 1,
+  id: "1",
+  slug: "clean-water-initiative",
   title: "Clean Water Initiative",
   category: "International",
   description:
@@ -59,12 +61,12 @@ const project: Project = {
     "/images/projects/hero.jpg",
   ],
   nextProject: {
-    id: 2,
+    slug: "local-food-drive",
     title: "Local Food Drive",
     category: "Community",
   },
   previousProject: {
-    id: 6,
+    slug: "youth-mentorship-program",
     title: "Youth Mentorship Program",
     category: "Professional",
   },
@@ -72,7 +74,7 @@ const project: Project = {
 
 export default function ProjectDetail() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  
+
   // Transform project images to the required format
   const masonryImages = project.images.map((src) => ({
     src,
@@ -132,6 +134,7 @@ export default function ProjectDetail() {
             <Masonry
               images={masonryImages}
               columns={2}
+              scrollbar={true}
               className="h-[calc(100vh-200px)]"
               onImageClick={(image) => setSelectedImage(image.src)}
             />
@@ -187,9 +190,9 @@ export default function ProjectDetail() {
 
               {/* Project Navigation */}
               <div className="flex justify-between items-center mt-6">
-                {project.previousProject ? (
+                {project.previousProject && (
                   <Link
-                    href={`/projects/${project.previousProject.id}`}
+                    href={`/projects/${project.previousProject.slug}`}
                     className="flex items-center text-gray-600 hover:text-[#FF5733]"
                   >
                     <svg
@@ -207,13 +210,11 @@ export default function ProjectDetail() {
                     </svg>
                     <span>Previous Project</span>
                   </Link>
-                ) : (
-                  <div></div>
                 )}
 
                 {project.nextProject && (
                   <Link
-                    href={`/projects/${project.nextProject.id}`}
+                    href={`/projects/${project.nextProject.slug}`}
                     className="flex items-center text-gray-600 hover:text-[#FF5733]"
                   >
                     <span>Next Project</span>

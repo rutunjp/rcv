@@ -12,6 +12,7 @@ interface MasonryProps {
   columns?: 1 | 2;
   className?: string;
   onImageClick?: (image: ImageType) => void;
+  scrollbar?: boolean;
 }
 
 export function Masonry({
@@ -19,9 +20,39 @@ export function Masonry({
   columns = 2,
   className = "",
   onImageClick,
+  scrollbar = false,
 }: MasonryProps) {
   return (
-    <div className={`${className}`}>
+    <div
+      className={`${scrollbar ? "overflow-y-auto pr-2 pb-8" : ""} ${className}`}
+      style={
+        scrollbar
+          ? {
+              scrollbarWidth: "thin",
+              scrollbarColor: "#FF5733 #f3f4f6",
+              msOverflowStyle: "none",
+            }
+          : undefined
+      }
+    >
+      {scrollbar && (
+        <style jsx>{`
+          div::-webkit-scrollbar {
+            width: 6px;
+          }
+          div::-webkit-scrollbar-track {
+            background: #f3f4f6;
+            border-radius: 10px;
+          }
+          div::-webkit-scrollbar-thumb {
+            background: #ff5733;
+            border-radius: 10px;
+          }
+          div::-webkit-scrollbar-thumb:hover {
+            background: #ff4520;
+          }
+        `}</style>
+      )}
       <div className={`columns-${columns} gap-4 space-y-4`}>
         {images.map((image, index) => (
           <div key={index} className="break-inside-avoid mb-4">
@@ -44,4 +75,4 @@ export function Masonry({
       </div>
     </div>
   );
-} 
+}
