@@ -1,10 +1,48 @@
 "use client";
+import { useEffect } from "react";
+import confetti from "canvas-confetti";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function AIDemystified() {
+  useEffect(() => {
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // First burst from bottom
+    confetti({
+      angle: 270, // Point upward
+      spread: randomInRange(45, 80),
+      particleCount: randomInRange(40, 60),
+      origin: { x: 0.3, y: 0.15 }, // Start from bottom
+      gravity: -0.8, // Negative gravity to go up
+      scalar: 0.8,
+      colors: ["#FF5733", "#FF8C69", "#FFB6C1", "#ffffff"],
+      startVelocity: 50, // Higher velocity to shoot up
+    });
+
+    // Second burst from bottom after a small delay
+    setTimeout(() => {
+      confetti({
+        angle: 270, // Point upward
+        spread: randomInRange(45, 80),
+        particleCount: randomInRange(40, 60),
+        origin: { x: 0.7, y: 0.85 }, // Start from bottom
+        gravity: -0.8, // Negative gravity to go up
+        scalar: 0.8,
+        colors: ["#FF5733", "#FF8C69", "#FFB6C1", "#ffffff"],
+        startVelocity: 50, // Higher velocity to shoot up
+      });
+    }, 150);
+
+    return () => {
+      confetti.reset();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#FF5733] relative overflow-hidden">
       {/* Wavy Lines Background */}
