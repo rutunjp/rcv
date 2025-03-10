@@ -44,7 +44,7 @@ export default function AIDemystified() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FF5733] relative overflow-hidden">
+    <div className="min-h-screen bg-[] relative overflow-hidden">
       {/* Wavy Lines Background */}
       <div className="absolute inset-0 opacity-10">
         <svg
@@ -75,7 +75,7 @@ export default function AIDemystified() {
 
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-0 relative z-10">
-        <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-sm rounded-[40px] p-12 mt-8">
+        <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-sm rounded-[40px] sm:p-12 p-8 mt-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div className="text-white space-y-6">
@@ -191,14 +191,14 @@ export default function AIDemystified() {
             {/* Right Column - AI Robot */}
             <div className="relative hidden lg:block">
               {/* Add glow effect behind the robot */}
-              <div
+              {/* <div
                 className="absolute inset-0 blur-[100px] opacity-30 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 rounded-full"
                 style={{
                   transform: "scale(1.2) translateX(15%) translateY(-10%)",
                   width: "140%",
                   height: "140%",
                 }}
-              />
+              /> */}
 
               {/* Robot image with enhanced styling */}
               <div className="relative transform hover:scale-105 transition-transform duration-500">
@@ -235,32 +235,7 @@ export default function AIDemystified() {
             </div>
           </div>
 
-          {/* Partners */}
-          {/* <div className="mt-16 pt-8 border-t border-white/10">
-            <div className="flex flex-wrap items-center justify-center gap-8">
-              <Image
-                src="/images/logos/skitrelogo.png"
-                alt="Skitre.ai"
-                width={120}
-                height={40}
-                className="opacity-80 hover:opacity-100 transition-opacity"
-              />
-              <Image
-                src="/images/logos/Rotaract3060.png"
-                alt="Rotaract District 3060"
-                width={120}
-                height={40}
-                className="opacity-80 hover:opacity-100 transition-opacity"
-              />
-              <Image
-                src="/images/logos/rcvLogo.png"
-                alt="Rotaract Vadodara"
-                width={120}
-                height={40}
-                className="opacity-80 hover:opacity-100 transition-opacity"
-              />
-            </div>
-          </div> */}
+           
         </div>
       </div>
     </div>
