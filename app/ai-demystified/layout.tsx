@@ -8,31 +8,51 @@ interface LayoutProps {
 
 export default function AIDemystifiedLayout({ children }: LayoutProps) {
   return (
-    <>
-      {/* Minimal Transparent Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50">
+    <div className="min-h-screen pt-8 bg-[#FF5733]">
+      {/* Navbar - removed fixed positioning */}
+      <header className="relative z-50 bg-[#FF5733]/50 backdrop-blur-sm">
         <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex bg-white/10 backdrop-blur-sm rounded-full   justify-between items-center h-20 p-2 px-4">
             <Link href="/" className="relative z-10">
               <Image
-                src="/images/logos/rcvLogo.png"
+                src="/images/logos/rcvLogoWhite.png"
                 alt="Rotaract Vadodara"
-                width={120}
-                height={40}
-                className="w-auto h-8"
+                width={160}
+                height={60}
+                className="w-auto   h-9 sm:h-12"
               />
             </Link>
-            <Link
+            <Link href="https://rotaract3060.com/" className="relative z-10">
+              <Image
+                src="/images/logos/district3060White.png"
+                alt="Rotaract 3060"
+                width={160}
+                height={60}
+                className="w-auto   h-9 sm:h-12"
+              />
+            </Link>
+            <Link href="https://skitre.ai" className="relative z-10">
+              <Image
+                src="/images/logos/skitrelogo.png"
+                alt="Skitre.ai"
+                width={160}
+                height={60}
+                className="w-auto   h-9 sm:h-12"
+              />
+            </Link>
+            {/* <Link
               href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform"
               target="_blank"
               className="bg-white/10 hover:bg-white/20 text-white px-6 py-2 rounded-full backdrop-blur-sm transition-all"
             >
               Register Now
-            </Link>
+            </Link> */}
           </div>
         </nav>
       </header>
-      {children}
-    </>
+
+      {/* Main content */}
+      <main>{children}</main>
+    </div>
   );
 }

@@ -41,9 +41,9 @@ export default function AIDemystified() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div className="text-white space-y-6">
-              <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-4">
+              {/* <div className="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium mb-4">
                 THE MAIN TREND OF THE YEAR
-              </div>
+              </div> */}
 
               <h1 className="text-5xl sm:text-7xl font-bold leading-tight">
                 AI Demystified
@@ -58,20 +58,40 @@ export default function AIDemystified() {
                 ChatGPT, Gemini, and Grok can boost productivity, simplify
                 tasks, and give you an edge in the digital world.🚀
               </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 pt-6">
-                <Link
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform"
-                  target="_blank"
-                >
-                  <Button className="w-full sm:w-auto bg-white text-[#FF5733] hover:bg-white/90 font-bold text-lg py-6 px-8 rounded-full">
-                    Register Now
-                  </Button>
-                </Link>
+              {/* Speakers */}
+              <div className="pt-8">
+                <h3 className="text-lg font-medium mb-4">Speakers</h3>
+                <div className="flex gap-6">
+                  <div className="text-center flex flex-col items-center">
+                    <Image
+                      src="/images/speakers/shubham.jpg"
+                      alt="Shubham Gupta"
+                      width={80}
+                      height={80}
+                      className="rounded-full mb-2"
+                    />
+                    <p className="font-medium">Shubham Gupta</p>
+                    <p className="text-sm text-white/60">
+                      GenAI Expert @ Skitre.ai
+                    </p>
+                  </div>
+                  <div className="text-center flex flex-col items-center">
+                    <Image
+                      src="/images/speakers/kp.jpg"
+                      alt="Kartik Patel"
+                      width={80}
+                      height={80}
+                      className="rounded-full mb-2"
+                    />
+                    <p className="font-medium">Kartik Patel</p>
+                    <p className="text-sm text-white/60">
+                      Product Engineer @ Skitre.ai
+                    </p>
+                  </div>
+                </div>
               </div>
-
               {/* Event Details Grid */}
-              <div className="grid grid-cols-2 gap-6 pt-8">
+              <div className="grid grid-cols-1 gap-6 pt-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
                     <span className="text-2xl">📅</span>
@@ -96,47 +116,37 @@ export default function AIDemystified() {
                       <p className="font-medium">Online</p>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
+                  {/* <div className="flex items-center gap-3 bg-white/10 rounded-2xl p-4">
                     <span className="text-2xl">💰</span>
                     <div>
                       <p className="text-sm text-white/60">Registration</p>
                       <p className="font-medium">Free</p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
-
-              {/* Speakers */}
-              <div className="pt-8">
-                <h3 className="text-lg font-medium mb-4">Speakers</h3>
-                <div className="flex gap-6">
-                  <div className="text-center">
-                    <Image
-                      src="/images/speakers/shubham.jpg"
-                      alt="Shubham Gupta"
-                      width={80}
-                      height={80}
-                      className="rounded-full mb-2"
+              {/* Register Now Button */}
+              <div className="pt-6">
+                <Link
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#FF5733] px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
+                >
+                  Register Now
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
-                    <p className="font-medium">Shubham Gupta</p>
-                    <p className="text-sm text-white/60">
-                      GenAI Expert @ Skitre.ai
-                    </p>
-                  </div>
-                  <div className="text-center">
-                    <Image
-                      src="/images/speakers/kp.jpg"
-                      alt="Kartik Patel"
-                      width={80}
-                      height={80}
-                      className="rounded-full mb-2"
-                    />
-                    <p className="font-medium">Kartik Patel</p>
-                    <p className="text-sm text-white/60">
-                      Product Engineer @ Skitre.ai
-                    </p>
-                  </div>
-                </div>
+                  </svg>
+                </Link>
               </div>
             </div>
 
@@ -153,7 +163,7 @@ export default function AIDemystified() {
           </div>
 
           {/* Partners */}
-          <div className="mt-16 pt-8 border-t border-white/10">
+          {/* <div className="mt-16 pt-8 border-t border-white/10">
             <div className="flex flex-wrap items-center justify-center gap-8">
               <Image
                 src="/images/logos/skitrelogo.png"
@@ -177,7 +187,7 @@ export default function AIDemystified() {
                 className="opacity-80 hover:opacity-100 transition-opacity"
               />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
