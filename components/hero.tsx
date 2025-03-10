@@ -106,8 +106,8 @@ export default function Hero() {
               images={carouselImages}
               columns={2}
               className="h-[calc(100vh-96px)]" // Adjusted height for hero section
-              autoScroll={true}
-              speed={20} // Slower speed for smoother scrolling
+              // autoScroll={true}
+              // speed={20} // Slower speed for smoother scrolling
             />
           </div>
         </div>

@@ -1,118 +1,25 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import Head from "next/head";
 import Image from "next/image";
 import { Masonry } from "@/components/ui/masonry";
+import type { IProject } from "@/lib/content/projects";
 
-interface ProjectDetails {
-  id: string;
-  slug: string;
-  title: string;
-  category: string;
-  description: string;
-  fullDescription: string;
-  date: {
-    start: string;
-    end?: string;
-  };
-  chairs: {
-    name: string;
-    role?: string;
-  }[];
-  location: string;
-  impact: {
-    beneficiaries: number;
-    description: string;
-    metrics?: {
-      label: string;
-      value: string | number;
-    }[];
-  };
-  partners?: {
-    name: string;
-    logo?: string;
-    website?: string;
-  }[];
-  images: {
-    src: string;
-    alt: string;
-    caption?: string;
-  }[];
-  nextProject?: {
-    slug: string;
-    title: string;
-    category: string;
-  };
-  previousProject?: {
-    slug: string;
-    title: string;
-    category: string;
-  };
-}
-// Sample project data - replace with your actual data
-// const project: Project = {
-//   id: "1",
-//   slug: "clean-water-initiative",
-//   title: "Clean Water Initiative",
-//   category: "International",
-//   description:
-//     "Partnering with global organizations to provide clean drinking water to communities in need. Our club members helped install water filtration systems in three villages and conducted educational workshops on water conservation.",
-//   fullDescription:
-//     "Access to clean water is a fundamental human right, yet millions around the world still lack this basic necessity. Our Rotaract club partnered with Water for All International to make a difference in communities facing severe water shortages.\n\nOver a period of six months, our members raised funds, coordinated logistics, and traveled to implement sustainable water solutions. The project had three main components:\n\n1. Installation of water filtration systems in three rural villages, providing clean drinking water to over 2,000 people\n\n2. Educational workshops on water conservation and sanitation practices, empowering locals with knowledge to maintain their new systems\n\n3. Distribution of personal water filters to families in remote areas beyond the reach of centralized systems\n\nThe impact of this initiative extends beyond immediate access to clean water. With reduced waterborne illnesses, children can attend school more regularly, and adults can focus on work and community development. We've established a maintenance fund and training program to ensure the sustainability of these systems for years to come.",
-//   date: "January 15-30, 2025",
-//   chairs: ["Maria Rodriguez", "James Chen"],
-//   location: "Nariokotome, Kenya",
-//   impact:
-//     "Provided clean water access to over 2,000 people across three villages",
-//   partners: [
-//     "Water for All International",
-//     "Local Rotary Club",
-//     "Kenyan Ministry of Water",
-//   ],
-//   images: [
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/donbosco.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//     "/images/projects/hero.jpg",
-//   ],
-//   nextProject: {
-//     slug: "local-food-drive",
-//     title: "Local Food Drive",
-//     category: "Community",
-//   },
-//   previousProject: {
-//     slug: "youth-mentorship-program",
-//     title: "Youth Mentorship Program",
-//     category: "Professional",
-//   },
-// };
-
-interface ProjectDetailProps {
-  project: ProjectDetails;
+interface IProjectDetailProps {
+  project: IProject;
 }
 
-export default function ProjectDetail({ project }: ProjectDetailProps) {
+export function ProjectDetail({ project }: IProjectDetailProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // Transform project images to the required format
+  // Transform project images to the required format for Masonry
   const masonryImages = project.images.map((image) => ({
     src: image.src,
     alt: image.alt || project.title,
   }));
 
   return (
-    <div className="pt-20 bg-white">
-      <Head>
-        <title>{project.title} | Rotaract Club Projects</title>
-        <meta name="description" content={project.description} />
-      </Head>
-
+    <div className="bg-white">
       <main className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Project navigation breadcrumb */}
         <div className="py-4">
@@ -165,7 +72,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
 
           {/* Project Details - Right Column (Sticky) */}
           <div className="lg:w-2/5">
-            <div className="sticky top-20">
+            <div className="sticky top-24">
               <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
                 <div className="prose max-w-none">
                   <p className="text-gray-600 mb-6">
@@ -200,7 +107,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         .join(", ")}
                     </p>
                   </div>
-                  {/* <div>
+                  <div>
                     <h3 className="text-gray-500 font-medium mb-1">Impact</h3>
                     <p className="text-gray-900">
                       {project.impact.description}
@@ -217,7 +124,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                         ))}
                       </div>
                     )}
-                  </div> */}
+                  </div>
                 </div>
 
                 {project.partners && (
@@ -226,7 +133,7 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                       Partners
                     </h3>
                     <div className="flex flex-wrap gap-2">
-                      {project.partners?.map((partner, index) => (
+                      {project.partners.map((partner, index) => (
                         <span
                           key={index}
                           className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full"
@@ -236,53 +143,6 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                       ))}
                     </div>
                   </div>
-                )}
-              </div>
-
-              {/* Project Navigation */}
-              <div className="flex justify-between items-center mt-6">
-                {project.previousProject && (
-                  <Link
-                    href={`/projects/${project.previousProject.slug}`}
-                    className="flex items-center text-gray-600 hover:text-[#FF5733]"
-                  >
-                    <svg
-                      className="h-5 w-5 mr-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M15 19l-7-7 7-7"
-                      />
-                    </svg>
-                    <span>Previous Project</span>
-                  </Link>
-                )}
-
-                {project.nextProject && (
-                  <Link
-                    href={`/projects/${project.nextProject.slug}`}
-                    className="flex items-center text-gray-600 hover:text-[#FF5733]"
-                  >
-                    <span>Next Project</span>
-                    <svg
-                      className="h-5 w-5 ml-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </Link>
                 )}
               </div>
             </div>

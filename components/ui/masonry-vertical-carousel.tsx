@@ -8,6 +8,7 @@ interface MasonryVerticalCarouselProps {
   columns?: 1 | 2;
   className?: string;
   onImageClick?: (image: ImageType) => void;
+   
 }
 
 export function MasonryVerticalCarousel({
@@ -15,6 +16,7 @@ export function MasonryVerticalCarousel({
   columns = 2,
   className = "",
   onImageClick,
+   
 }: MasonryVerticalCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
