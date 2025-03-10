@@ -5,10 +5,10 @@ export function middleware(request: NextRequest) {
     // Get the pathname from the request
     const pathname = request.nextUrl.pathname
 
-    // Add a custom header for routes that should hide the navbar
+    // Hide both navbar and announcement banner for AI Demystified page
     if (pathname === '/ai-demystified') {
         const response = NextResponse.next()
-        response.headers.set('x-hide-navbar', 'true')
+        response.headers.set('x-hide-nav', 'true')
         return response
     }
 

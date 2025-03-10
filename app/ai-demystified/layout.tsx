@@ -8,18 +8,18 @@ interface LayoutProps {
 
 export default function AIDemystifiedLayout({ children }: LayoutProps) {
   return (
-    <div className="min-h-screen pt-8 bg-[#FF5733]">
+    <div className="min-h-screen  pt-8 bg-[rgb(255,87,51)]">
       {/* Navbar - removed fixed positioning */}
-      <header className="relative z-50 bg-[#FF5733]/50 backdrop-blur-sm">
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex bg-white/10 backdrop-blur-sm rounded-full   justify-between items-center h-20 p-2 px-4">
+      <header className="relative  mx-auto  max-w-7xl z-50 bg-[#FF5733]/50 backdrop-blur-sm">
+        <nav className="container mx-auto px-4 sm:px-0   ">
+          <div className="flex sm:gap-6 sm:justify-around bg-white/10 backdrop-blur-sm rounded-full sm:w-fit justify-between items-center h-20 p-2 px-4">
             <Link href="/" className="relative z-10">
               <Image
                 src="/images/logos/rcvLogoWhite.png"
                 alt="Rotaract Vadodara"
                 width={160}
                 height={60}
-                className="w-auto   h-9 sm:h-12"
+                className="w-auto h-9 sm:h-12"
               />
             </Link>
             <Link href="https://rotaract3060.com/" className="relative z-10">
@@ -28,7 +28,7 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
                 alt="Rotaract 3060"
                 width={160}
                 height={60}
-                className="w-auto   h-9 sm:h-12"
+                className="w-auto h-9 sm:h-12"
               />
             </Link>
             <Link href="https://skitre.ai" className="relative z-10">
@@ -37,7 +37,7 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
                 alt="Skitre.ai"
                 width={160}
                 height={60}
-                className="w-auto   h-9 sm:h-12"
+                className="w-auto h-9 sm:h-12"
               />
             </Link>
             {/* <Link

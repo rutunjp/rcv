@@ -1,10 +1,48 @@
 "use client";
+import { useEffect } from "react";
+import confetti from "canvas-confetti";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 
 export default function AIDemystified() {
+  useEffect(() => {
+    function randomInRange(min: number, max: number) {
+      return Math.random() * (max - min) + min;
+    }
+
+    // First burst from bottom
+    confetti({
+      angle: 270, // Point upward
+      spread: randomInRange(45, 80),
+      particleCount: randomInRange(40, 60),
+      origin: { x: 0.3, y: 0.15 }, // Start from bottom
+      gravity: -0.8, // Negative gravity to go up
+      scalar: 0.8,
+      colors: ["#FF5733", "#FF8C69", "#FFB6C1", "#ffffff"],
+      startVelocity: 50, // Higher velocity to shoot up
+    });
+
+    // Second burst from bottom after a small delay
+    setTimeout(() => {
+      confetti({
+        angle: 270, // Point upward
+        spread: randomInRange(45, 80),
+        particleCount: randomInRange(40, 60),
+        origin: { x: 0.7, y: 0.85 }, // Start from bottom
+        gravity: -0.8, // Negative gravity to go up
+        scalar: 0.8,
+        colors: ["#FF5733", "#FF8C69", "#FFB6C1", "#ffffff"],
+        startVelocity: 50, // Higher velocity to shoot up
+      });
+    }, 150);
+
+    return () => {
+      confetti.reset();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#FF5733] relative overflow-hidden">
       {/* Wavy Lines Background */}
@@ -36,7 +74,7 @@ export default function AIDemystified() {
       </div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-0 relative z-10">
         <div className="max-w-7xl mx-auto bg-white/5 backdrop-blur-sm rounded-[40px] p-12 mt-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
@@ -152,13 +190,48 @@ export default function AIDemystified() {
 
             {/* Right Column - AI Robot */}
             <div className="relative hidden lg:block">
-              <Image
-                src="/images/airobot.png"
-                alt="AI Assistant"
-                width={600}
-                height={600}
-                className="relative z-10 transform translate-x-12"
+              {/* Add glow effect behind the robot */}
+              <div
+                className="absolute inset-0 blur-[100px] opacity-30 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 rounded-full"
+                style={{
+                  transform: "scale(1.2) translateX(15%) translateY(-10%)",
+                  width: "140%",
+                  height: "140%",
+                }}
               />
+
+              {/* Robot image with enhanced styling */}
+              <div className="relative transform hover:scale-105 transition-transform duration-500">
+                <Image
+                  src="/images/airobot.png"
+                  alt="AI Assistant"
+                  width={1200}
+                  height={1200}
+                  className="relative z-10 transform translate-x-2 hover:translate-y-[-10px] transition-all duration-500 drop-shadow-2xl float"
+                  style={{
+                    filter: "drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))",
+                  }}
+                />
+
+                {/* Subtle floating animation */}
+                <style jsx global>{`
+                  @keyframes float {
+                    0% {
+                      transform: translateY(0px) translateX(48px);
+                    }
+                    50% {
+                      transform: translateY(-20px) translateX(48px);
+                    }
+                    100% {
+                      transform: translateY(0px) translateX(48px);
+                    }
+                  }
+
+                  .float {
+                    animation: float 6s ease-in-out infinite;
+                  }
+                `}</style>
+              </div>
             </div>
           </div>
 
