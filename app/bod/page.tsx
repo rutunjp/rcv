@@ -2,109 +2,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
-interface BoardMember {
-  id: number;
-  name: string;
-  role: string;
-  photo: string;
-  email: string;
-  linkedin: string;
-  intro: string;
-}
-
-// Sample board members data - replace with your actual team data
-const boardMembers: BoardMember[] = [
-  {
-    id: 1,
-    name: "Emily Rodriguez",
-    role: "President",
-    photo: "/images/team/emily.jpg",
-    email: "emily.rodriguez@rotaract.org",
-    linkedin: "https://linkedin.com/in/emilyrodriguez",
-    intro:
-      "Emily is a passionate community advocate with 5 years of Rotaract experience. She's currently pursuing her Master's in Public Administration and hopes to build stronger connections between our club and the community it serves. Her vision for this year is to expand our international service initiatives while strengthening local partnerships.",
-  },
-  {
-    id: 2,
-    name: "Michael Chen",
-    role: "Vice President",
-    photo: "/images/team/michael.jpg",
-    email: "michael.chen@rotaract.org",
-    linkedin: "https://linkedin.com/in/michaelchen",
-    intro:
-      "Michael brings his background in business development to help grow our club's impact. He joined Rotaract three years ago and has led several successful fundraising campaigns. Michael is dedicated to creating professional development opportunities for all members and enhancing our club's operational excellence.",
-  },
-  {
-    id: 3,
-    name: "Sophia Patel",
-    role: "Secretary",
-    photo: "/images/team/sophia.jpg",
-    email: "sophia.patel@rotaract.org",
-    linkedin: "https://linkedin.com/in/sophiapatel",
-    intro:
-      "Sophia ensures our club runs smoothly with her exceptional organizational skills. A founding member of our chapter, she maintains our records, communications, and meeting minutes with precision. Her background in communications helps us maintain transparent and effective club operations.",
-  },
-  {
-    id: 4,
-    name: "James Washington",
-    role: "Treasurer",
-    photo: "/images/team/james.jpg",
-    email: "james.washington@rotaract.org",
-    linkedin: "https://linkedin.com/in/jameswashington",
-    intro:
-      "James manages our club finances with expertise from his career in accounting. He oversees our budget, fundraising accounts, and ensures we maximize our resources for service projects. James is passionate about financial transparency and sustainable project funding.",
-  },
-  {
-    id: 5,
-    name: "Olivia Kim",
-    role: "International Service Director",
-    photo: "/images/team/olivia.jpg",
-    email: "olivia.kim@rotaract.org",
-    linkedin: "https://linkedin.com/in/oliviakim",
-    intro:
-      "Olivia coordinates our global service initiatives and international partnerships. Having lived in four countries, she brings a global perspective to our projects. She's currently working on expanding our clean water initiative and developing a new educational support program in partnership with clubs in Southeast Asia.",
-  },
-  {
-    id: 6,
-    name: "David Okafor",
-    role: "Community Service Director",
-    photo: "/images/team/david.jpg",
-    email: "david.okafor@rotaract.org",
-    linkedin: "https://linkedin.com/in/davidokafor",
-    intro:
-      "David leads our local service projects with a focus on addressing urgent community needs. His background in social work helps us create meaningful, sustainable impact. This year, he's focused on expanding our youth mentorship program and launching a new initiative to support homeless individuals in our area.",
-  },
-  {
-    id: 7,
-    name: "Aisha Mahmoud",
-    role: "Professional Development Chair",
-    photo: "/images/team/aisha.jpg",
-    email: "aisha.mahmoud@rotaract.org",
-    linkedin: "https://linkedin.com/in/aishamahmoud",
-    intro:
-      "Aisha organizes workshops, speaker series, and networking events to help members grow professionally. With her experience in career counseling, she creates valuable opportunities for skill development. She's currently developing a mentorship program connecting club members with experienced professionals in various fields.",
-  },
-  {
-    id: 8,
-    name: "Daniel Garcia",
-    role: "Club Service Director",
-    photo: "/images/team/daniel.jpg",
-    email: "daniel.garcia@rotaract.org",
-    linkedin: "https://linkedin.com/in/danielgarcia",
-    intro:
-      "Daniel focuses on strengthening our internal club culture and member engagement. He coordinates social events, recognition programs, and ensures new members feel welcome. His goal is to foster a vibrant club atmosphere that balances service work with friendship and fun.",
-  },
-  {
-    id: 9,
-    name: "Priya Sharmaa",
-    role: "Public Relations Officer",
-    photo: "/images/team/priya.jpg",
-    email: "priya.sharma@rotaract.org",
-    linkedin: "https://linkedin.com/in/priyasharma",
-    intro:
-      "Priya manages our club's public image, social media presence, and communications strategy. With her background in marketing, she showcases our impact to the wider community. She's working on a new website and digital storytelling campaign to highlight our members and projects.",
-  },
-];
+import { BoardMember } from "@/lib/data";
+import { boardMembers } from "@/lib/data";
+// Sample board members data - replace with your actual team 
 
 export default function Team() {
   const [selectedMember, setSelectedMember] = useState<BoardMember | null>(
@@ -141,22 +41,23 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {boardMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
+              className="bg-white  rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
               onClick={() => openDialog(member)}
             >
               <div className="relative h-72 bg-gray-200">
                 <Image
                   src={member.photo}
                   alt={member.name}
-                  className="object-cover"
+                  quality={80}
+                  className="object-cover object-top"
                   fill
                 />
               </div>
-              <div className="p-6 text-center">
+              <div className="p-2 py-2 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}
                 </h3>
@@ -182,7 +83,7 @@ export default function Team() {
                   <Image
                     src={selectedMember.photo}
                     alt={selectedMember.name}
-                    className="object-cover"
+                    className="object-cover object-top"
                     fill
                   />
                 </div>

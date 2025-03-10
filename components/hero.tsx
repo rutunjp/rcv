@@ -1,28 +1,116 @@
+"use client";
 import { Button } from "@/components/ui/button"; // Shadcn UI
-import Image from "next/image";
-import HeroImage from "@/public/images/hero.jpg";
+import Link from "next/link";
+import React from "react";
+import { MasonryVerticalCarousel } from "@/components/ui/masonry-vertical-carousel";
+
+// Define types for stats
+type ProjectStat = {
+  value: string;
+  label: string;
+  description?: string;
+};
+
+const projectStats: ProjectStat[] = [
+  {
+    value: "15+",
+    label: "Community Service",
+    description: "Local impact projects",
+  },
+  { value: "10+", label: "International", description: "Global initiatives" },
+  {
+    value: "12+",
+    label: "Professional Dev",
+    description: "Career growth events",
+  },
+  { value: "8+", label: "Club Service", description: "Internal activities" },
+  { value: "45+", label: "Total Projects", description: "This Rotary year" },
+] as const;
+
+// Modified carouselImages array - removed 'as const' for dynamic flexibility
+const carouselImages = [
+  { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
+  { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
+  { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
+  { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
+];
 
 export default function Hero() {
   return (
-    <section className="flex sm:px-16 sm:container px-4 flex-col md:flex-row items-center min-h-[80vh]">
-      <div className="flex flex-col justify-center w-full md:w-1/2 ">
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-          Unleash Your Power with Rotaract
-        </h1>
-        <p className="text-lg md:text-2xl mt-4">
-          Join a global crew of young hustlers turning ideas into action. No
-          limits, just impact.
-        </p>
-        <Button className="mt-6 bg-[#FF5733] w-fit hover:bg-[#FF7849] text-white font-bold text-lg py-3 px-8 rounded">
-          Get In Now
-        </Button>
-      </div>
-      <div className="w-full aspect-video rounded-3xl md:w-[70%]">
-        <Image
-          src={HeroImage} // Upload your phone pic to /public/photos NOW
-          alt="Rotaract crew"
-          className="object-contain rounded-3xl w-full h-auto"
-        />
+    <section className="relative min-h-screen pt-20">
+      {/* Background Pattern with Grain Effect */}
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex  sm:px-16 px-4 w-full flex-col justify-between md:flex-row items-start gap-16 min-h-[80vh] py-12">
+          <div className="flex flex-col justify-center w-full md:w-[45%] space-y-8 sticky top-24">
+            {/* Eyebrow text */}
+            <p className="text-[#FF5733] font-semibold tracking-wide uppercase">
+              Welcome to Rotaract Vadodara
+            </p>
+
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+              Together We <span className="text-[#FF5733]">Serve Better</span>
+            </h1>
+
+            <p className="text-lg md:text-2xl text-gray-600 max-w-xl">
+              Join our community of young leaders making a difference through
+              service, friendship, and professional growth.
+            </p>
+
+            {/* Updated Stats Section */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-8">
+              {projectStats.map((stat, index) => (
+                <div
+                  key={index}
+                  className={`${
+                    index === projectStats.length - 1
+                      ? "col-span-2 md:col-span-3 bg-[#FF5733]/5 p-4 rounded-xl"
+                      : ""
+                  }`}
+                >
+                  <p className="text-3xl font-bold text-[#FF5733]">
+                    {stat.value}
+                  </p>
+                  <p className="text-sm font-semibold text-gray-800">
+                    {stat.label}
+                  </p>
+                  {stat.description && (
+                    <p className="text-xs text-gray-600 mt-1">
+                      {stat.description}
+                    </p>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex gap-4 pt-4">
+              <Link href="/join">
+                <Button className="bg-[#FF5733] hover:bg-[#FF7849] text-white font-bold text-lg py-6 px-8 rounded-full transition-all duration-300 hover:scale-105">
+                  Join Us
+                </Button>
+              </Link>
+              <Link href="/projects">
+                <Button
+                  variant="outline"
+                  className="font-bold text-lg py-6 px-8 rounded-full border-2 hover:bg-[#FF5733]/5 transition-all duration-300"
+                >
+                  Our Projects
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          {/* Updated MasonryVerticalCarousel with auto-scroll */}
+          <div className="relative w-full md:w-[50%] mt-12 md:mt-0">
+            <MasonryVerticalCarousel
+              images={carouselImages}
+              columns={2}
+              className="h-[calc(100vh-96px)]" // Adjusted height for hero section
+              // autoScroll={true}
+              // speed={20} // Slower speed for smoother scrolling
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

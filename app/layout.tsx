@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/navbar";
+// import Footer from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -9,14 +10,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={` antialiased`}>
+      <body className="min-h-screen bg-white">
         <Navbar />
-        {children}
+        <main className="relative">{children}</main>
+        {/* <Footer /> */}
       </body>
     </html>
   );

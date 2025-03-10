@@ -1,76 +1,20 @@
+import { boardMembers, type BoardMember } from "@/lib/data";
 import { Metadata } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 
-const boardMembers = [
-  {
-    id: "emily-rodriguez",
-    name: "Emily Rodriguez",
-    role: "President",
-    photo: "/images/team/dhawal.jpg",
-    email: "emily.rodriguez@rotaract.org",
-    linkedin: "https://linkedin.com/in/emilyrodriguez",
-    instagram: "https://instagram.com/emilyrodriguez",
-    twitter: "https://twitter.com/emilyrodriguez",
-    portfolio: "https://emilyrodriguez.com",
-    intro:
-      "Emily is a passionate community advocate with 5 years of Rotaract experience. She's currently pursuing her Master's in Public Administration and hopes to build stronger connections between our club and the community it serves.",
-    quote:
-      "Service above self isn't just a motto—it's how I try to live every day.",
-    achievements: [
-      "Led fundraising campaign that raised $25,000 for disaster relief",
-      "Developed new international partnership with clubs in 3 countries",
-      "Increased club membership by 40% through community outreach",
-    ],
-    education: "Master's in Public Administration, State University",
-    background: "Marketing specialist with focus on nonprofit organizations",
-    skills: [
-      "Project Management",
-      "Public Speaking",
-      "Strategic Planning",
-      "Fundraising",
-      "Community Outreach",
-    ],
-    profileColor: "#FF5733",
-    slug: "emily-rodriguez", // Added slug property
-  },
-  {
-    id: "rutunj-parikh",
-    name: "rutunj Rodriguez",
-    role: "President",
-    photo: "/images/team/me.jpg",
-    email: "emily.rodriguez@rotaract.org",
-    linkedin: "https://linkedin.com/in/emilyrodriguez",
-    instagram: "https://instagram.com/emilyrodriguez",
-    twitter: "https://twitter.com/emilyrodriguez",
-    portfolio: "https://emilyrodriguez.com",
-    intro:
-      "Emily is a passionate community advocate with 5 years of Rotaract experience. She's currently pursuing her Master's in Public Administration and hopes to build stronger connections between our club and the community it serves.",
-    quote:
-      "Service above self isn't just a motto—it's how I try to live every day.",
-    achievements: [
-      "Led fundraising campaign that raised $25,000 for disaster relief",
-      "Developed new international partnership with clubs in 3 countries",
-      "Increased club membership by 40% through community outreach",
-    ],
-    education: "Master's in Public Administration, State University",
-    background: "Marketing specialist with focus on nonprofit organizations",
-    skills: [
-      "Project Management",
-      "Public Speaking",
-      "Strategic Planning",
-      "Fundraising",
-      "Community Outreach",
-    ],
-    profileColor: "#FF5733",
-    slug: "rutunj-parikh", // Added slug property
-  },
-  // ... other members
-];
+type ISkill = string;
 
-function getMember(memberSlug: string) {
+function getMember(memberSlug: string): BoardMember | undefined {
   return boardMembers.find((member) => member.slug === memberSlug);
+}
+
+interface IAchievement {
+  id: number;
+  title: string;
+  date?: string; // Optional, in case you want to add dates later
+  description?: string; // Optional, for any additional details
 }
 
 export async function generateMetadata({
@@ -125,7 +69,7 @@ export default function MemberPage({
         <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
           <div
             className="h-24 w-full"
-            style={{ backgroundColor: member.profileColor || "#FF5733" }}
+            style={{ backgroundColor: "#FF5733" }}
           ></div>
 
           <div className="px-6 pt-0 pb-6 relative">
@@ -145,10 +89,7 @@ export default function MemberPage({
                 <h1 className="text-2xl font-bold text-gray-900">
                   {member.name}
                 </h1>
-                <p
-                  className="text-lg font-medium"
-                  style={{ color: member.profileColor || "#FF5733" }}
-                >
+                <p className="text-lg font-medium" style={{ color: "#FF5733" }}>
                   {member.role}
                 </p>
                 <p className="text-gray-600 mt-1">{member.background}</p>
@@ -159,7 +100,7 @@ export default function MemberPage({
             {member.quote && (
               <div
                 className="mt-6 italic text-gray-600 border-l-4 pl-4 py-1"
-                style={{ borderColor: member.profileColor || "#FF5733" }}
+                style={{ borderColor: "#FF5733" }}
               >
                 `&quot;`{member.quote}`&quot;`
               </div>
@@ -183,40 +124,43 @@ export default function MemberPage({
         </div>
 
         {/* Achievements Section */}
-        {member.achievements && member.achievements.length > 0 && (
-          <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
-            <div className="p-6">
-              <h2 className="text-xl font-bold text-gray-900 mb-4">
-                Achievements at Rotaract
-              </h2>
-              <ul className="space-y-2">
-                {member.achievements.map((achievement, index) => (
-                  <li key={index} className="flex items-start">
-                    <div
-                      className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-1"
-                      style={{
-                        backgroundColor: member.profileColor || "#FF5733",
-                      }}
-                    >
-                      <svg
-                        className="h-3 w-3 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
+        {Array.isArray(member.achievements) &&
+          member.achievements.length > 0 && (
+            <div className="bg-white rounded-2xl shadow-sm overflow-hidden mb-6">
+              <div className="p-6">
+                <h2 className="text-xl font-bold text-gray-900 mb-4">
+                  Achievements at Rotaract
+                </h2>
+                <ul className="space-y-2">
+                  {member.achievements.map((achievement: IAchievement) => (
+                    <li key={achievement.id} className="flex items-start">
+                      <div
+                        className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center mt-1"
+                        style={{
+                          backgroundColor: "#FF5733",
+                        }}
                       >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <span className="ml-3 text-gray-700">{achievement}</span>
-                  </li>
-                ))}
-              </ul>
+                        <svg
+                          className="h-3 w-3 text-white"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </div>
+                      <span className="ml-3 text-gray-700">
+                        {achievement.title}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-        )}
+          )}
 
         {/* Skills Section */}
         {member.skills && member.skills.length > 0 && (
@@ -224,13 +168,13 @@ export default function MemberPage({
             <div className="p-6">
               <h2 className="text-xl font-bold text-gray-900 mb-4">Skills</h2>
               <div className="flex flex-wrap gap-2">
-                {member.skills.map((skill, index) => (
+                {member.skills.map((skill: ISkill, index: number) => (
                   <span
                     key={index}
                     className="px-3 py-1 rounded-full text-sm font-medium"
                     style={{
-                      backgroundColor: `${member.profileColor || "#FF5733"}20`,
-                      color: member.profileColor || "#FF5733",
+                      backgroundColor: `${"#FF5733"}20`,
+                      color: "#FF5733",
                     }}
                   >
                     {skill}
@@ -254,12 +198,12 @@ export default function MemberPage({
                 <div
                   className="h-10 w-10 rounded-full flex items-center justify-center mr-4"
                   style={{
-                    backgroundColor: `${member.profileColor || "#FF5733"}20`,
+                    backgroundColor: `${"#FF5733"}20`,
                   }}
                 >
                   <svg
                     className="h-5 w-5"
-                    style={{ color: member.profileColor || "#FF5733" }}
+                    style={{ color: "#FF5733" }}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -289,12 +233,12 @@ export default function MemberPage({
                   <div
                     className="h-10 w-10 rounded-full flex items-center justify-center mr-4"
                     style={{
-                      backgroundColor: `${member.profileColor || "#FF5733"}20`,
+                      backgroundColor: `${"#FF5733"}20`,
                     }}
                   >
                     <svg
                       className="h-5 w-5"
-                      style={{ color: member.profileColor || "#FF5733" }}
+                      style={{ color: "#FF5733" }}
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -319,12 +263,12 @@ export default function MemberPage({
                   <div
                     className="h-10 w-10 rounded-full flex items-center justify-center mr-4"
                     style={{
-                      backgroundColor: `${member.profileColor || "#FF5733"}20`,
+                      backgroundColor: `${"#FF5733"}20`,
                     }}
                   >
                     <svg
                       className="h-5 w-5"
-                      style={{ color: member.profileColor || "#FF5733" }}
+                      style={{ color: "#FF5733" }}
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -349,12 +293,12 @@ export default function MemberPage({
                   <div
                     className="h-10 w-10 rounded-full flex items-center justify-center mr-4"
                     style={{
-                      backgroundColor: `${member.profileColor || "#FF5733"}20`,
+                      backgroundColor: `${"#FF5733"}20`,
                     }}
                   >
                     <svg
                       className="h-5 w-5"
-                      style={{ color: member.profileColor || "#FF5733" }}
+                      style={{ color: "#FF5733" }}
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -379,12 +323,12 @@ export default function MemberPage({
                   <div
                     className="h-10 w-10 rounded-full flex items-center justify-center mr-4"
                     style={{
-                      backgroundColor: `${member.profileColor || "#FF5733"}20`,
+                      backgroundColor: `${"#FF5733"}20`,
                     }}
                   >
                     <svg
                       className="h-5 w-5"
-                      style={{ color: member.profileColor || "#FF5733" }}
+                      style={{ color: "#FF5733" }}
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
