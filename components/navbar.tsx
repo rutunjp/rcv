@@ -12,6 +12,15 @@ const navigationLinks = [
   { name: "Join", href: "/join", color: "hover:text-[#FF7849]" },
 ] as const;
 
+// Add this after the navigation links array
+const specialEvents = [
+  {
+    name: "AI Demystified",
+    href: "/ai-demystified",
+    isSpecial: true,
+  },
+] as const;
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
@@ -43,7 +52,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white z-50 border-b border-gray-100 shadow-sm">
+    <header className="sticky top-0 bg-white z-40 border-b border-gray-100 shadow-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
@@ -78,6 +87,34 @@ export default function Navbar() {
                 )}
               </Link>
             ))}
+          </div>
+
+          {/* In the navbar JSX, add this before the Join button */}
+          <div className="hidden md:flex items-center gap-4">
+            {specialEvents.map((event) => (
+              <Link
+                key={event.name}
+                href={event.href}
+                className={`
+                  px-4 py-2 rounded-full text-sm font-medium
+                  ${
+                    pathname === event.href
+                      ? "bg-[#FF5733] text-white"
+                      : "bg-[#FF5733]/10 text-[#FF5733] hover:bg-[#FF5733]/20"
+                  }
+                  transition-all duration-200
+                `}
+              >
+                {event.name}
+                <span className="ml-1 inline-block animate-pulse">🔥</span>
+              </Link>
+            ))}
+            <Link
+              href="/join"
+              className="bg-[#FF5733] text-white px-6 py-2 rounded-full hover:bg-[#FF7849] transition-all"
+            >
+              Join Us
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
