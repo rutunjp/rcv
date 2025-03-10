@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button"; // Shadcn UI
 import Link from "next/link";
 import React from "react";
-import { Masonry } from "@/components/ui/masonry";
+import { MasonryVerticalCarousel } from "@/components/ui/masonry-vertical-carousel";
 
 // Define types for stats
 type ProjectStat = {
@@ -29,8 +29,8 @@ const projectStats: ProjectStat[] = [
 
 // Modified carouselImages array - removed 'as const' for dynamic flexibility
 const carouselImages = [
-  { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
   { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
+  { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
   { src: "/images/projects/hero.jpg", alt: "Rotaract crew in action" },
   { src: "/images/projects/donbosco.jpg", alt: "Community service project" },
 ];
@@ -99,9 +99,15 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Replace the existing masonry implementation with the new component */}
+        {/* Updated MasonryVerticalCarousel with auto-scroll */}
         <div className="relative w-full md:w-[50%] mt-12 md:mt-0">
-          <Masonry images={carouselImages} columns={2} className="h-[700px]" />
+          <MasonryVerticalCarousel
+            images={carouselImages}
+            columns={2}
+            className="h-[calc(100vh-96px)]" // Adjusted height for hero section
+            autoScroll={true}
+            speed={20} // Slower speed for smoother scrolling
+          />
         </div>
       </div>
     </section>

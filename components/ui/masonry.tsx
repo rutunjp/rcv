@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React from "react";
 
-interface ImageType {
+export interface ImageType {
   src: string;
   alt: string;
 }
@@ -21,30 +21,7 @@ export function Masonry({
   onImageClick,
 }: MasonryProps) {
   return (
-    <div
-      className={`h-full overflow-y-auto pr-2 ${className}`}
-      style={{
-        scrollbarWidth: "thin",
-        scrollbarColor: "#FF5733 #f3f4f6",
-        msOverflowStyle: "none",
-      }}
-    >
-      <style jsx>{`
-        div::-webkit-scrollbar {
-          width: 6px;
-        }
-        div::-webkit-scrollbar-track {
-          background: #f3f4f6;
-          border-radius: 10px;
-        }
-        div::-webkit-scrollbar-thumb {
-          background: #ff5733;
-          border-radius: 10px;
-        }
-        div::-webkit-scrollbar-thumb:hover {
-          background: #ff4520;
-        }
-      `}</style>
+    <div className={`${className}`}>
       <div className={`columns-${columns} gap-4 space-y-4`}>
         {images.map((image, index) => (
           <div key={index} className="break-inside-avoid mb-4">
