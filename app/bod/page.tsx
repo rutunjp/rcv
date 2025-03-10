@@ -41,11 +41,11 @@ export default function Team() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
           {boardMembers.map((member) => (
             <div
               key={member.id}
-              className="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
+              className="bg-white  rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300 cursor-pointer"
               onClick={() => openDialog(member)}
             >
               <div className="relative h-72 bg-gray-200">
@@ -53,11 +53,11 @@ export default function Team() {
                   src={member.photo}
                   alt={member.name}
                   quality={80}
-                  className="object-cover"
+                  className="object-cover object-top"
                   fill
                 />
               </div>
-              <div className="p-6 text-center">
+              <div className="p-2 py-2 text-center">
                 <h3 className="text-xl font-bold text-gray-900 mb-1">
                   {member.name}
                 </h3>
@@ -83,7 +83,7 @@ export default function Team() {
                   <Image
                     src={selectedMember.photo}
                     alt={selectedMember.name}
-                    className="object-cover"
+                    className="object-cover object-top"
                     fill
                   />
                 </div>
