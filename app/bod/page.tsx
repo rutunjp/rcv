@@ -4,7 +4,7 @@ import Image from "next/image";
 import Head from "next/head";
 import { BoardMember } from "@/lib/data";
 import { boardMembers } from "@/lib/data";
-// Sample board members data - replace with your actual team data
+// Sample board members data - replace with your actual team 
 
 export default function Team() {
   const [selectedMember, setSelectedMember] = useState<BoardMember | null>(
