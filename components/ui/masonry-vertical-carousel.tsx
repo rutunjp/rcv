@@ -8,7 +8,6 @@ interface MasonryVerticalCarouselProps {
   columns?: 1 | 2;
   className?: string;
   onImageClick?: (image: ImageType) => void;
-   
 }
 
 export function MasonryVerticalCarousel({
@@ -16,7 +15,6 @@ export function MasonryVerticalCarousel({
   columns = 2,
   className = "",
   onImageClick,
-   
 }: MasonryVerticalCarouselProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -29,10 +27,10 @@ export function MasonryVerticalCarousel({
       className={`relative h-full overflow-hidden ${className}`}
     >
       {/* Top gradient overlay */}
-      <div className="absolute top-0 left-0 right-0 h-32 z-10 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
+      <div className="absolute  top-0 left-0 right-0 h-8 z-10 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
 
       {/* Bottom gradient overlay */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 z-10 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-8 z-10 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
 
       <style jsx>{`
         @keyframes slideUp {
