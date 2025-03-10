@@ -1,14 +1,14 @@
-export type ProjectCategory =
+export type IProjectCategory =
   | "Community Service"
   | "International"
   | "Professional Development"
   | "Club Service"
 
-export interface Project {
+export interface IProject {
   id: string;
   slug: string;
   title: string;
-  category: ProjectCategory;
+  category: IProjectCategory;
   description: string;
   fullDescription: string;
   date: {

@@ -1,12 +1,12 @@
-import { Project, ProjectCategory } from '../content/projects';
+import { IProject, IProjectCategory } from '../content/projects';
 
-export const projectCategories: ProjectCategory[] = [
+export const projectCategories: IProjectCategory[] = [
   "Community Service",
   "International",
   "Professional Development",
   "Club Service",
 ];
-export const projects: Project[] = [
+export const projects: IProject[] = [
   {
     id: "1",
     slug: "clean-green-drive",
@@ -119,21 +119,21 @@ export const projects: Project[] = [
 export default projects;
 
 
-export function getProjectBySlug(slug: string): Project | undefined {
+export function getProjectBySlug(slug: string): IProject | undefined {
   return projects.find(project => project.slug === slug);
 }
 
-export function getRelatedProjects(currentProject: Project, limit = 3): Project[] {
+export function getRelatedProjects(currentProject: IProject, limit = 3): IProject[] {
   return projects
     .filter(p => p.id !== currentProject.id && p.category === currentProject.category)
     .slice(0, limit);
 }
 
-export function getProjectsByCategory(category: ProjectCategory): Project[] {
+export function getProjectsByCategory(category: IProjectCategory): IProject[] {
   return projects.filter(project => project.category === category);
 }
 
-export function getFeaturedProjects(limit = 6): Project[] {
+export function getFeaturedProjects(limit = 6): IProject[] {
   return projects
     .filter(project => project.featured)
     .slice(0, limit);

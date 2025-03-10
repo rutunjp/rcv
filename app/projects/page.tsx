@@ -3,12 +3,12 @@ import { useState } from "react";
 
 import Head from "next/head";
 import { projects, projectCategories } from "@/lib/data/projects";
-import type { ProjectCategory } from "@/lib/content/projects";
+import type { IProjectCategory } from "@/lib/content/projects";
 import { ProjectCard } from "@/components/project-card";
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<
-    ProjectCategory | "all"
+    IProjectCategory | "all"
   >("all");
 
   const filteredProjects =

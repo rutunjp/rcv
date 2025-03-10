@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Project } from "@/lib/content/projects";
+import type { IProject } from "@/lib/content/projects";
 
-interface ProjectCardProps {
-  project: Project;
+interface IProjectCardProps {
+  project: IProject;
 }
 
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project }: IProjectCardProps) {
   return (
     <Link
       href={`/projects/${project.slug}`}
