@@ -152,13 +152,48 @@ export default function AIDemystified() {
 
             {/* Right Column - AI Robot */}
             <div className="relative hidden lg:block">
-              <Image
-                src="/images/airobot.png"
-                alt="AI Assistant"
-                width={600}
-                height={600}
-                className="relative z-10 transform translate-x-12"
+              {/* Add glow effect behind the robot */}
+              <div
+                className="absolute inset-0 blur-[100px] opacity-30 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 rounded-full"
+                style={{
+                  transform: "scale(1.2) translateX(15%) translateY(-10%)",
+                  width: "140%",
+                  height: "140%",
+                }}
               />
+
+              {/* Robot image with enhanced styling */}
+              <div className="relative transform hover:scale-105 transition-transform duration-500">
+                <Image
+                  src="/images/airobot.png"
+                  alt="AI Assistant"
+                  width={1200}
+                  height={1200}
+                  className="relative z-10 transform translate-x-2 hover:translate-y-[-10px] transition-all duration-500 drop-shadow-2xl float"
+                  style={{
+                    filter: "drop-shadow(0 0 30px rgba(255, 255, 255, 0.3))",
+                  }}
+                />
+
+                {/* Subtle floating animation */}
+                <style jsx global>{`
+                  @keyframes float {
+                    0% {
+                      transform: translateY(0px) translateX(48px);
+                    }
+                    50% {
+                      transform: translateY(-20px) translateX(48px);
+                    }
+                    100% {
+                      transform: translateY(0px) translateX(48px);
+                    }
+                  }
+
+                  .float {
+                    animation: float 6s ease-in-out infinite;
+                  }
+                `}</style>
+              </div>
             </div>
           </div>
 
