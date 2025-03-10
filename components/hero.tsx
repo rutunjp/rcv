@@ -100,7 +100,7 @@ export default function Hero() {
         </div>
 
         {/* Updated MasonryVerticalCarousel with auto-scroll */}
-        <div className="relative w-full md:w-[50%] sm:max-h-[80vh] mt-12 md:mt-0">
+        <div className="relative max-sm:hidden w-full md:w-[50%] sm:max-h-[80vh] mt-12 md:mt-0">
           <MasonryVerticalCarousel
             images={carouselImages}
             columns={2}

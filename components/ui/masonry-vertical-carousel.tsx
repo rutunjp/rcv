@@ -27,7 +27,7 @@ export function MasonryVerticalCarousel({
       className={`relative h-full overflow-hidden ${className}`}
     >
       {/* Top gradient overlay */}
-      <div className="absolute top-0 left-0 right-0 h-8 z-10 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
+      <div className="absolute  top-0 left-0 right-0 h-8 z-10 bg-gradient-to-b from-white via-white/80 to-transparent pointer-events-none" />
 
       {/* Bottom gradient overlay */}
       <div className="absolute bottom-0 left-0 right-0 h-8 z-10 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none" />
