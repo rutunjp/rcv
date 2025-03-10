@@ -44,7 +44,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 p-4 bg-white/80 backdrop-blur-md shadow-sm z-50">
+      <div className="h-[72px] w-full" />
+
+      <nav className="fixed top-0 left-0 right-0 h-[72px] p-4 bg-white/80 backdrop-blur-md shadow-sm z-50">
         <div className="max-w-7xl mx-auto flex justify-between items-center sm:px-6">
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold">
@@ -65,13 +67,17 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${link.color} transition-colors relative ${
-                  pathname === link.href
-                    ? "text-[#FF5733] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#FF5733]"
-                    : ""
-                }`}
+                className={`${link.color} transition-colors relative group overflow-hidden`}
               >
-                {link.name}
+                <span className="relative inline-block transition-transform duration-300 group-hover:-translate-y-full">
+                  {link.name}
+                </span>
+                <span className="absolute top-full left-0 inline-block transition-transform duration-300 group-hover:-translate-y-full">
+                  {link.name}
+                </span>
+                {pathname === link.href && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#FF5733] transform origin-left transition-transform duration-300"></span>
+                )}
               </Link>
             ))}
           </div>
@@ -84,23 +90,18 @@ export default function Navbar() {
             }
             aria-label="Toggle menu"
           >
-            <svg
-              className={`w-6 h-6 transition-transform duration-300 ${
-                isMenuOpen ? "rotate-90" : ""
-              }`}
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              {isMenuOpen ? (
-                <path d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span
+                className={`w-full h-0.5 bg-black transition-all duration-300 ease-out ${
+                  isMenuOpen ? "rotate-45 translate-y-0.5" : "-translate-y-1"
+                }`}
+              />
+              <span
+                className={`w-full h-0.5 bg-black transition-all duration-300 ease-out ${
+                  isMenuOpen ? "-rotate-45" : "translate-y-1"
+                }`}
+              />
+            </div>
           </button>
         </div>
       </nav>
@@ -108,28 +109,51 @@ export default function Navbar() {
       {/* Full Screen Mobile Menu */}
       {(isMenuOpen || isClosing) && (
         <div
-          className={`fixed inset-0 bg-white md:hidden z-40
+          className={`fixed inset-0 md:hidden z-40
             ${
               isClosing
                 ? "animate-out slide-out-to-top duration-300"
                 : "animate-in slide-in-from-top duration-300"
             }`}
         >
-          <div className="flex flex-col items-center justify-center min-h-screen">
+          {/* Background with gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100" />
+
+          {/* Menu Content */}
+          <div className="relative flex flex-col items-center justify-center min-h-screen p-4">
             {navigationLinks.map((link, index) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`${
-                  link.color
-                } transition-all transform py-4 text-2xl font-semibold
-                  ${pathname === link.href ? "text-[#FF5733] scale-110" : ""}
+                className={`relative overflow-hidden py-4 px-8 text-4xl font-bold
+                  ${pathname === link.href ? "text-[#FF5733]" : "text-black"}
+                  transform transition-all duration-500 hover:scale-110
                   ${isClosing ? "animate-out fade-out" : "animate-in fade-in"}
-                  duration-300 delay-[${index * 100}ms]`}
+                  delay-[${index * 100}ms]`}
                 onClick={handleMenuClose}
               >
-                {link.name}
+                <span className="relative z-10">{link.name}</span>
+                <span
+                  className={`absolute inset-0 bg-[#FF5733]/10 transform origin-left
+                  transition-transform duration-300 ease-out
+                  ${pathname === link.href ? "scale-x-100" : "scale-x-0"}
+                  hover:scale-x-100`}
+                />
               </Link>
+            ))}
+          </div>
+
+          {/* Decorative Elements */}
+          <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-4 text-sm text-gray-500">
+            {["Instagram", "Twitter", "LinkedIn"].map((social, index) => (
+              <span
+                key={social}
+                className={`transform transition-all duration-500 hover:text-[#FF5733]
+                  ${isClosing ? "animate-out fade-out" : "animate-in fade-in"}
+                  delay-[${(navigationLinks.length + index) * 100}ms]`}
+              >
+                {social}
+              </span>
             ))}
           </div>
         </div>
