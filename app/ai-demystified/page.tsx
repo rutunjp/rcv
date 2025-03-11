@@ -187,7 +187,7 @@ export default function AIDemystified() {
                 </Link>
 
                 <Link
-                  href="https://meet.google.com/your-meeting-link"
+                  href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Njg3OWQ0ZWMtNWU5MS00MWY1LWE1MjMtZmMyMzg3YjNkMjg0%40thread.v2/0?context=%7b%22Tid%22%3a%2207bb513c-5224-4c65-b58f-e837e9676727%22%2c%22Oid%22%3a%221f7e5eb1-c199-4307-bdab-5251228227fb%22%7d"
                   target="_blank"
                   className="max-sm:w-fit  inline-flex items-center gap-2 bg-[#FF5733] hover:bg-[#FF7849] text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
                 >
