@@ -9,7 +9,11 @@ import logo from "@/public/images/logos/rcvLogo.png";
 const navigationLinks = [
   { name: "Projects", href: "/projects", color: "hover:text-[#FF5733]" },
   { name: "About", href: "/about", color: "hover:text-[#FF7849]" },
-  { name: "Join", href: "/join", color: "hover:text-[#FF7849]" },
+  {
+    name: "Join",
+    href: "https://docs.google.com/forms/d/1gGlc8G34cG9VjHGluUZiGP_24ZMToeV5aK8zJ8Jjh2o/viewform?edit_requested=true&pli=1",
+    color: "hover:text-[#FF7849]",
+  },
 ] as const;
 
 // Add this after the navigation links array
@@ -110,7 +114,7 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/join"
+              href="https://docs.google.com/forms/d/1gGlc8G34cG9VjHGluUZiGP_24ZMToeV5aK8zJ8Jjh2o/viewform?edit_requested=true&pli=1"
               className="bg-[#FF5733] text-white px-6 py-2 rounded-full hover:bg-[#FF7849] transition-all"
             >
               Join Us

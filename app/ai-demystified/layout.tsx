@@ -45,7 +45,7 @@ export default function AIDemystifiedLayout({ children }: LayoutProps) {
               className="relative max-sm:hidden z-10"
             >
               <Image
-                src="/images/logos/Connectwhite.png"
+                src="/images/logos/whiteConnect.png"
                 alt="Connect"
                 width={160}
                 height={60}

@@ -83,7 +83,7 @@ export default function Hero() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <Link href="/join">
+            <Link href="https://docs.google.com/forms/d/1gGlc8G34cG9VjHGluUZiGP_24ZMToeV5aK8zJ8Jjh2o/viewform?edit_requested=true&pli=1">
               <Button className="bg-[#FF5733] hover:bg-[#FF7849] text-white font-bold text-lg py-6 px-8 rounded-full transition-all duration-300 hover:scale-105">
                 Join Us
               </Button>

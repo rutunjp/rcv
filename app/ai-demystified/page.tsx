@@ -166,7 +166,7 @@ export default function AIDemystified() {
               {/* Register Now Button */}
               <div className="pt-6">
                 <Link
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform?usp=dialog"
                   target="_blank"
                   className="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#FF5733] px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
                 >
@@ -234,8 +234,6 @@ export default function AIDemystified() {
               </div>
             </div>
           </div>
-
-           
         </div>
       </div>
     </div>
