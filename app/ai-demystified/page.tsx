@@ -164,11 +164,11 @@ export default function AIDemystified() {
                 </div>
               </div>
               {/* Register Now Button */}
-              <div className="pt-6 flex gap-4">
+              <div className="pt-6 flex flex-col sm:flex-row gap-4">
                 <Link
                   href="https://docs.google.com/forms/d/e/1FAIpQLSc3enAXs2hqnXZE7ZI7cR9SSYwrm1h_VdN3CqUlcGmq3UDy-Q/viewform?usp=dialog"
                   target="_blank"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-white/90 text-[#FF5733] px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-white  max-sm:w-fit hover:bg-white/90 text-[#FF5733] px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
                 >
                   Register Now
                   <svg
@@ -189,7 +189,7 @@ export default function AIDemystified() {
                 <Link
                   href="https://meet.google.com/your-meeting-link"
                   target="_blank"
-                  className="inline-flex items-center gap-2 bg-[#FF5733] hover:bg-[#FF7849] text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
+                  className="max-sm:w-fit  inline-flex items-center gap-2 bg-[#FF5733] hover:bg-[#FF7849] text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
                 >
                   Join Meeting
                   <svg
