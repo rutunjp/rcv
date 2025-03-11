@@ -185,10 +185,35 @@ export default function AIDemystified() {
                     />
                   </svg>
                 </Link>
-
                 <Link
                   href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Njg3OWQ0ZWMtNWU5MS00MWY1LWE1MjMtZmMyMzg3YjNkMjg0%40thread.v2/0?context=%7b%22Tid%22%3a%2207bb513c-5224-4c65-b58f-e837e9676727%22%2c%22Oid%22%3a%221f7e5eb1-c199-4307-bdab-5251228227fb%22%7d"
                   target="_blank"
+                  onClick={(e) => e.preventDefault()}
+                  className="max-sm:w-fit inline-flex items-center gap-2 bg-gray-400 cursor-not-allowed opacity-75 text-white px-8 py-4 rounded-full font-bold text-lg transition-all relative group"
+                >
+                  Join Meeting
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <span className="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-sm px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    Meeting starts on 8.30PM March 12th
+                  </span>
+                </Link>
+
+                {/* <Link
+                  href="https://teams.microsoft.com/l/meetup-join/19%3ameeting_Njg3OWQ0ZWMtNWU5MS00MWY1LWE1MjMtZmMyMzg3YjNkMjg0%40thread.v2/0?context=%7b%22Tid%22%3a%2207bb513c-5224-4c65-b58f-e837e9676727%22%2c%22Oid%22%3a%221f7e5eb1-c199-4307-bdab-5251228227fb%22%7d"
+                  target="_blank"
+                  
                   className="max-sm:w-fit  inline-flex items-center gap-2 bg-[#FF5733] hover:bg-[#FF7849] text-white px-8 py-4 rounded-full font-bold text-lg transition-all hover:scale-105"
                 >
                   Join Meeting
@@ -205,7 +230,7 @@ export default function AIDemystified() {
                       d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
                     />
                   </svg>
-                </Link>
+                </Link> */}
               </div>
             </div>
 
